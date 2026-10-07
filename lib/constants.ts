@@ -40,7 +40,7 @@ export const HERO_CONFIG = {
   scrollText: "SCROLL TO EXPLORE",
   ctaText: "KNOW THE MAN",
   videoUrl: "/videos/hero-background.mp4",
-  posterUrl: "/images/hero-poster.png",
+  posterUrl: "/images/hero-poster.jpg",
 } as const;
 
 export const CHAPTERS_LIST: NavChapter[] = [

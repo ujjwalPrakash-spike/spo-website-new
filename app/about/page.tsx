@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="relative w-full bg-neutral-950 text-white selection:bg-[#93c5fd] selection:text-neutral-950">
+    <main className="relative w-full bg-neutral-50 text-neutral-950 selection:bg-[#93c5fd] selection:text-neutral-950">
       <AboutHero />
       <SectionIndex />
       <IntroSection />

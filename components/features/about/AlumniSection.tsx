@@ -1,6 +1,6 @@
 "use client";
 
-// Chapter 04: Notable Alumni on dark surface with expandable list.
+// Chapter 04: Notable Alumni on light surface with expandable list.
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -28,7 +28,7 @@ export function AlumniSection({
     <section
       id={content.id}
       aria-label={content.title}
-      className="w-full bg-neutral-950 text-white scroll-mt-[130px]"
+      className="w-full bg-neutral-50 text-neutral-950 scroll-mt-[130px]"
       style={{
         paddingInline: ABOUT_TOKENS.paddingInline,
         paddingTop: ABOUT_TOKENS.paddingVertical,
@@ -36,7 +36,7 @@ export function AlumniSection({
       }}
     >
       <div className="mx-auto max-w-[1440px]">
-        <ChapterHeader index={content.index} title={content.title} tone="dark" />
+        <ChapterHeader index={content.index} title={content.title} tone="light" />
 
         {/* Full-width Banner Image */}
         <RevealImage className="relative w-full aspect-[4/3] sm:aspect-[21/9] mb-12 lg:mb-16">
@@ -54,7 +54,7 @@ export function AlumniSection({
           <div className="lg:col-span-8 flex flex-col gap-5">
             {content.paragraphs.map((p, idx) => (
               <RevealText key={idx} delay={idx * 0.07}>
-                <p className="text-[17px] leading-[1.7] text-white/75 max-w-[62ch] text-pretty">
+                <p className="text-[17px] leading-[1.7] text-neutral-950/75 max-w-[62ch] text-pretty">
                   {p}
                 </p>
               </RevealText>
@@ -64,23 +64,23 @@ export function AlumniSection({
 
         {/* Notable Alumni Name Roll */}
         <div className="w-full">
-          <h3 className="text-[13px] uppercase tracking-[0.12em] text-white/50 mb-6">
+          <h3 className="text-[13px] uppercase tracking-[0.12em] text-neutral-950/50 mb-6">
             Notable Alumni
           </h3>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-12 border-t border-white/10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-12 border-t border-neutral-950/10">
             {initialList.map((item) => (
-              <div key={item.id} className="py-5 border-b border-white/10 flex flex-col gap-1">
+              <div key={item.id} className="py-5 border-b border-neutral-950/10 flex flex-col gap-1">
                 <div className="flex items-baseline gap-3">
-                  <span className="font-mono text-sm text-white/40">{item.id}</span>
+                  <span className="font-mono text-sm text-neutral-950/40">{item.id}</span>
                   <span
-                    className="font-medium text-white tracking-tight"
+                    className="font-medium text-neutral-950 tracking-tight"
                     style={{ fontSize: "clamp(1.2rem, 1.8vw, 1.6rem)" }}
                   >
                     {item.name}
                   </span>
                 </div>
-                <p className="text-[15px] text-white/60 pl-8 leading-snug">{item.role}</p>
+                <p className="text-[15px] text-neutral-950/60 pl-8 leading-snug">{item.role}</p>
               </div>
             ))}
           </div>
@@ -105,18 +105,18 @@ export function AlumniSection({
                       {remainingList.map((item) => (
                         <div
                           key={item.id}
-                          className="py-5 border-b border-white/10 flex flex-col gap-1"
+                          className="py-5 border-b border-neutral-950/10 flex flex-col gap-1"
                         >
                           <div className="flex items-baseline gap-3">
-                            <span className="font-mono text-sm text-white/40">{item.id}</span>
+                            <span className="font-mono text-sm text-neutral-950/40">{item.id}</span>
                             <span
-                              className="font-medium text-white tracking-tight"
+                              className="font-medium text-neutral-950 tracking-tight"
                               style={{ fontSize: "clamp(1.2rem, 1.8vw, 1.6rem)" }}
                             >
                               {item.name}
                             </span>
                           </div>
-                          <p className="text-[15px] text-white/60 pl-8 leading-snug">{item.role}</p>
+                          <p className="text-[15px] text-neutral-950/60 pl-8 leading-snug">{item.role}</p>
                         </div>
                       ))}
                     </div>
@@ -128,7 +128,7 @@ export function AlumniSection({
                 <button
                   type="button"
                   onClick={() => setShowAll(!showAll)}
-                  className="px-6 py-2.5 rounded-md border border-white/20 text-white text-sm font-medium hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-[#93c5fd] focus-visible:outline-offset-4"
+                  className="px-6 py-2.5 rounded-md border border-neutral-950/20 text-neutral-950 text-sm font-medium hover:bg-neutral-950/10 transition-colors focus-visible:outline-2 focus-visible:outline-[#93c5fd] focus-visible:outline-offset-4"
                 >
                   {showAll ? "Show less" : `Show all (${alumni.length})`}
                 </button>

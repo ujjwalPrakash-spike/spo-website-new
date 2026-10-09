@@ -12,7 +12,7 @@ export function CouncilCard({ council }: { council: StudentCouncil }) {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="h-[72px] w-[72px] rounded-2xl bg-white/5 flex items-center justify-center p-2.5 overflow-hidden border border-white/10 shrink-0">
+      <div className="h-[72px] w-[72px] rounded-2xl bg-neutral-950/5 flex items-center justify-center p-2.5 overflow-hidden border border-neutral-950/10 shrink-0">
         <Image
           src={council.logo}
           alt={council.alt}
@@ -22,12 +22,12 @@ export function CouncilCard({ council }: { council: StudentCouncil }) {
         />
       </div>
 
-      <h4 className="text-[22px] font-medium text-white tracking-tight">
+      <h4 className="text-[22px] font-medium text-neutral-950 tracking-tight">
         {council.title}
       </h4>
 
       <p
-        className={`text-[15px] leading-[1.65] text-white/70 text-pretty ${
+        className={`text-[15px] leading-[1.65] text-neutral-950/70 text-pretty ${
           !expanded && isLong ? "line-clamp-6" : ""
         }`}
       >

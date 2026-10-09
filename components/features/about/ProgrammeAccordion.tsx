@@ -29,7 +29,7 @@ export function ProgrammeAccordion({
   };
 
   return (
-    <div className="w-full divide-y divide-white/10 border-y border-white/10">
+    <div className="w-full divide-y divide-neutral-950/10 border-y border-neutral-950/10">
       {programmes.map((prog, idx) => {
         const isOpen = openId === prog.id;
         const metaLine = [prog.admission, prog.duration].filter(Boolean).join(" · ");
@@ -47,11 +47,11 @@ export function ProgrammeAccordion({
                 className="w-full py-6 sm:py-8 flex flex-col md:flex-row md:items-center justify-between gap-4 text-left group focus-visible:outline-2 focus-visible:outline-[#93c5fd] focus-visible:outline-offset-4 rounded"
               >
                 <div className="flex items-baseline gap-4 sm:gap-6">
-                  <span className="font-mono text-sm text-white/40 shrink-0">
+                  <span className="font-mono text-sm text-neutral-950/40 shrink-0">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
                   <span
-                    className="font-medium text-white tracking-[-0.02em] group-hover:text-white/80 transition-colors"
+                    className="font-medium text-neutral-950 tracking-[-0.02em] group-hover:text-neutral-950/80 transition-colors"
                     style={{ fontSize: "clamp(1.5rem, 2.8vw, 2.75rem)" }}
                   >
                     {prog.name}
@@ -59,8 +59,8 @@ export function ProgrammeAccordion({
                 </div>
 
                 <div className="flex items-center justify-between md:justify-end gap-6 shrink-0 pl-10 md:pl-0">
-                  {metaLine ? <span className="text-[13px] text-white/55 font-normal">{metaLine}</span> : null}
-                  <div className="h-8 w-8 rounded-full border border-white/15 flex items-center justify-center text-white/70 group-hover:text-white group-hover:border-white/40 transition-colors">
+                  {metaLine ? <span className="text-[13px] text-neutral-950/55 font-normal">{metaLine}</span> : null}
+                  <div className="h-8 w-8 rounded-full border border-neutral-950/15 flex items-center justify-center text-neutral-950/70 group-hover:text-neutral-950 group-hover:border-neutral-950/40 transition-colors">
                     {isOpen ? <IconMinus size={16} /> : <IconPlus size={16} />}
                   </div>
                 </div>
@@ -83,34 +83,34 @@ export function ProgrammeAccordion({
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                       {prog.admission ? (
                         <div>
-                          <span className="block text-[12px] uppercase tracking-wider text-white/50 mb-1">Admission</span>
-                          <span className="text-[15px] text-white/80">{prog.admission}</span>
+                          <span className="block text-[12px] uppercase tracking-wider text-neutral-950/50 mb-1">Admission</span>
+                          <span className="text-[15px] text-neutral-950/80">{prog.admission}</span>
                         </div>
                       ) : null}
                       {prog.duration ? (
                         <div>
-                          <span className="block text-[12px] uppercase tracking-wider text-white/50 mb-1">Duration</span>
-                          <span className="text-[15px] text-white/80">{prog.duration}</span>
+                          <span className="block text-[12px] uppercase tracking-wider text-neutral-950/50 mb-1">Duration</span>
+                          <span className="text-[15px] text-neutral-950/80">{prog.duration}</span>
                         </div>
                       ) : null}
                       {prog.eligibility ? (
                         <div>
-                          <span className="block text-[12px] uppercase tracking-wider text-white/50 mb-1">Eligibility</span>
-                          <span className="text-[15px] text-white/80">{prog.eligibility}</span>
+                          <span className="block text-[12px] uppercase tracking-wider text-neutral-950/50 mb-1">Eligibility</span>
+                          <span className="text-[15px] text-neutral-950/80">{prog.eligibility}</span>
                         </div>
                       ) : null}
                       {prog.internships ? (
                         <div>
-                          <span className="block text-[12px] uppercase tracking-wider text-white/50 mb-1">Internships</span>
-                          <span className="text-[15px] text-white/80">{prog.internships}</span>
+                          <span className="block text-[12px] uppercase tracking-wider text-neutral-950/50 mb-1">Internships</span>
+                          <span className="text-[15px] text-neutral-950/80">{prog.internships}</span>
                         </div>
                       ) : null}
                     </div>
 
-                    <p className="text-[16px] leading-[1.7] text-white/75 mb-4 text-pretty">{prog.description}</p>
+                    <p className="text-[16px] leading-[1.7] text-neutral-950/75 mb-4 text-pretty">{prog.description}</p>
                     {prog.example ? (
-                      <p className="text-[14px] text-white/50 italic">
-                        <span className="not-italic font-medium text-white/70 mr-1.5">Example:</span>
+                      <p className="text-[14px] text-neutral-950/50 italic">
+                        <span className="not-italic font-medium text-neutral-950/70 mr-1.5">Example:</span>
                         {prog.example}
                       </p>
                     ) : null}

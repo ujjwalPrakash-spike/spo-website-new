@@ -1,4 +1,4 @@
-// Chapter 02: Academics at IIT Kanpur on dark surface.
+// Chapter 02: Academics at IIT Kanpur on light surface.
 
 import React from "react";
 import Image from "next/image";
@@ -20,7 +20,7 @@ export function AcademicsSection({
     <section
       id={content.id}
       aria-label={content.title}
-      className="w-full bg-neutral-950 text-white scroll-mt-[130px]"
+      className="w-full bg-neutral-50 text-neutral-950 scroll-mt-[130px]"
       style={{
         paddingInline: ABOUT_TOKENS.paddingInline,
         paddingTop: ABOUT_TOKENS.paddingVertical,
@@ -28,14 +28,14 @@ export function AcademicsSection({
       }}
     >
       <div className="mx-auto max-w-[1440px]">
-        <ChapterHeader index={content.index} title={content.title} tone="dark" />
+        <ChapterHeader index={content.index} title={content.title} tone="light" />
 
         {/* Lead text and Lecture Hall Image */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16 lg:mb-24">
           <div className="lg:col-span-7">
             <RevealText>
               <p
-                className="text-white/80 font-normal leading-[1.6] text-pretty max-w-[56ch]"
+                className="text-neutral-950/80 font-normal leading-[1.6] text-pretty max-w-[56ch]"
                 style={{ fontSize: "clamp(1.125rem, 1.6vw, 1.5rem)" }}
               >
                 {content.lead}

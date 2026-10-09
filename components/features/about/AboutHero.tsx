@@ -36,12 +36,12 @@ function FactCounter({ item }: { item: FactItem }) {
   return (
     <div className="flex flex-col py-4 px-2 sm:px-6 first:pl-0 last:pr-0">
       <span
-        className="font-mono tabular-nums font-medium text-white tracking-tight"
+        className="font-mono tabular-nums font-medium text-neutral-950 tracking-tight"
         style={{ fontSize: "clamp(1.5rem, 3vw, 2.5rem)" }}
       >
         {val}
       </span>
-      <span className="text-[13px] text-white/55 font-normal tracking-wide mt-1">
+      <span className="text-[13px] text-neutral-950/55 font-normal tracking-wide mt-1">
         {item.label}
       </span>
     </div>
@@ -58,11 +58,9 @@ export function AboutHero({
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative w-full min-h-[88svh] bg-neutral-950 text-white flex flex-col justify-between overflow-hidden">
-      {/* Navbar sits on top with stickyScrolled active */}
-      <div className="w-full shrink-0">
-        <Navbar tone="dark" stickyScrolled={true} />
-      </div>
+    <section className="relative w-full min-h-[88svh] bg-neutral-50 text-neutral-950 flex flex-col justify-between">
+      {/* Navbar stays in the hero flow, avoiding a fixed-position jump while scrolling. */}
+      <Navbar tone="light" stickyScrolled={true} />
 
       {/* Spacer to push content down and create intentional empty space */}
       <div className="flex-1 min-h-[14vh]" />
@@ -80,7 +78,7 @@ export function AboutHero({
           initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: ABOUT_TOKENS.ease }}
-          className="text-[13px] uppercase tracking-[0.12em] text-white/50 mb-4"
+          className="text-[13px] uppercase tracking-[0.12em] text-neutral-950/50 mb-4"
         >
           {content.eyebrow}
         </motion.p>
@@ -91,7 +89,7 @@ export function AboutHero({
             initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : "100%" }}
             animate={{ opacity: 1, y: "0%" }}
             transition={{ duration: 0.9, delay: 0.1, ease: ABOUT_TOKENS.ease }}
-            className="font-sans font-medium tracking-[-0.05em] leading-[0.85] text-white"
+            className="font-sans font-medium tracking-[-0.05em] leading-[0.85] text-neutral-950"
             style={{ fontSize: "clamp(4rem, 15vw, 15rem)" }}
           >
             {content.title}
@@ -103,19 +101,19 @@ export function AboutHero({
           initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.22, ease: ABOUT_TOKENS.ease }}
-          className="text-white/75 text-[17px] sm:text-[19px] leading-[1.6] max-w-[52ch] mb-12 text-pretty"
+          className="text-neutral-950/75 text-[17px] sm:text-[19px] leading-[1.6] max-w-[52ch] mb-12 text-pretty"
         >
           {content.subcopy}
         </motion.p>
 
         {/* Facts strip */}
         <div className="w-full">
-          <div className="h-[1px] w-full bg-white/10 mb-6" />
+          <div className="h-[1px] w-full bg-neutral-950/10 mb-6" />
           <motion.div
             initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35, ease: ABOUT_TOKENS.ease }}
-            className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10"
+            className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-neutral-950/10"
           >
             {facts.map((fact, idx) => (
               <FactCounter key={idx} item={fact} />

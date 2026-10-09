@@ -214,26 +214,46 @@ const NAV_SECTIONS: NavSection[] = [
 
 export interface NavbarProps {
   tone?: "light" | "dark";
+  stickyScrolled?: boolean;
 }
 
-export function Navbar({ tone = "light" }: NavbarProps) {
+export function Navbar({ tone = "light", stickyScrolled = false }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [openMobileSection, setOpenMobileSection] = React.useState<
     string | null
   >(null);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!stickyScrolled) return;
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [stickyScrolled]);
 
   const isDark = tone === "dark";
 
   return (
-    <header className={`relative z-50 w-full ${isDark ? "" : "py-2 sm:py-3"}`}>
+    <header
+      className={`z-50 w-full transition-all duration-300 ${
+        stickyScrolled && isScrolled
+          ? "fixed top-0 inset-x-0 bg-neutral-950/85 backdrop-blur-xl border-b border-white/10 py-2.5 px-6 sm:px-12 md:px-16"
+          : `relative ${isDark ? "" : "py-2 sm:py-3"}`
+      }`}
+    >
       <div
         className={`flex w-full items-center justify-between ${
-          isDark ? "" : "px-4 sm:px-8 md:px-12"
+          stickyScrolled && isScrolled ? "" : isDark ? "" : "px-4 sm:px-8 md:px-12"
         }`}
       >
         {/* Div 1: Left - Logo & Brand */}
         <div className="flex items-center gap-3">
-          <LogoBadge size={isDark ? "hero" : "default"} />
+          <LogoBadge
+            size={stickyScrolled && isScrolled ? "footer" : isDark ? "hero" : "default"}
+          />
         </div>
 
         {/* Div 2: Center - Nav Links with Dropdowns (hidden below lg) */}

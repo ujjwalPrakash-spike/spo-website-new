@@ -5,8 +5,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ChapterHeader } from "./ChapterHeader";
-import { RevealText, RevealImage } from "./Reveal";
+import { ChapterHeader } from "@/components/shared/layout/ChapterHeader";
+import { RevealText, RevealImage } from "@/components/shared/motion/Reveal";
 import { ALUMNI_CONTENT } from "@/lib/about/content";
 import { NOTABLE_ALUMNI, type NotableAlumnus } from "@/lib/about/alumni";
 import { ABOUT_TOKENS } from "@/lib/about/tokens";

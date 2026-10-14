@@ -2,8 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
-import { ChapterHeader } from "./ChapterHeader";
-import { RevealText, RevealImage } from "./Reveal";
+import { ChapterHeader } from "@/components/shared/layout/ChapterHeader";
+import { RevealText, RevealImage } from "@/components/shared/motion/Reveal";
 import { FACULTY_CONTENT } from "@/lib/about/content";
 import { FACULTY_AWARDS, type FacultyAward } from "@/lib/about/faculty";
 import { ABOUT_TOKENS } from "@/lib/about/tokens";

@@ -3,8 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChapterHeader } from "./ChapterHeader";
-import { RevealText } from "./Reveal";
+import { ChapterHeader } from "@/components/shared/layout/ChapterHeader";
+import { RevealText } from "@/components/shared/motion/Reveal";
 import { CouncilCard } from "./CouncilCard";
 import { CAMPUS_LIFE_CONTENT } from "@/lib/about/content";
 import {

@@ -2,8 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
-import { ChapterHeader } from "./ChapterHeader";
-import { RevealText, RevealImage } from "./Reveal";
+import { ChapterHeader } from "@/components/shared/layout/ChapterHeader";
+import { RevealText, RevealImage } from "@/components/shared/motion/Reveal";
 import { ABOUT_INTRO_CONTENT } from "@/lib/about/content";
 import { ABOUT_TOKENS } from "@/lib/about/tokens";
 

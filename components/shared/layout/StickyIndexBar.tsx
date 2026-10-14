@@ -67,7 +67,7 @@ export function StickyIndexBar({ items, trailing }: StickyIndexBarProps) {
   return (
     <aside
       aria-label="Section chapters and search"
-      className="sticky top-0 z-40 w-full bg-neutral-950/80 backdrop-blur-xl border-b border-white/10"
+      className="sticky top-[56px] z-40 w-full bg-neutral-950/80 backdrop-blur-xl border-b border-white/10"
     >
       <div
         className="mx-auto max-w-[1440px]"

@@ -7,7 +7,7 @@ interface LogoBadgeProps {
   className?: string;
   onClick?: () => void;
   imageClassName?: string;
-  size?: "default" | "hero" | "footer";
+  size?: "default" | "hero" | "footer" | "bar" | "bar-scrolled";
 }
 
 export function LogoBadge({
@@ -18,7 +18,11 @@ export function LogoBadge({
 }: LogoBadgeProps) {
   const imgClass =
     imageClassName ??
-    (size === "hero"
+    (size === "bar"
+      ? "h-8 w-auto object-contain brightness-0 invert"
+      : size === "bar-scrolled"
+      ? "h-7 w-auto object-contain brightness-0 invert"
+      : size === "hero"
       ? "h-[clamp(52px,8.5vh,88px)] w-auto object-contain drop-shadow-xl"
       : size === "footer"
       ? "h-8 max-h-[32px] w-auto object-contain brightness-0 invert"

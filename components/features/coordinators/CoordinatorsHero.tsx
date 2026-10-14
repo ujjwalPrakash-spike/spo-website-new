@@ -23,10 +23,8 @@ export function CoordinatorsHero() {
   ];
 
   return (
-    <section className="relative w-full min-h-[80svh] bg-neutral-950 text-white flex flex-col justify-between overflow-hidden">
-      <div className="w-full shrink-0">
-        <Navbar tone="dark" stickyScrolled={true} />
-      </div>
+    <section className="relative w-full min-h-[80svh] bg-neutral-950 text-white flex flex-col justify-between overflow-hidden pt-16">
+      <Navbar tone="dark" variant="bar" />
 
       <div className="flex-1 min-h-[10vh]" />
 

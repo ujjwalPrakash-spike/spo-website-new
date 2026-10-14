@@ -22,7 +22,7 @@ export function Section({
     <section
       id={id}
       aria-labelledby={ariaLabelledby}
-      className={cn("w-full scroll-mt-[140px]", s.bg, s.text, className)}
+      className={cn("w-full scroll-mt-[120px]", s.bg, s.text, className)}
       style={{
         paddingInline: TOKENS.paddingInline,
         paddingTop: TOKENS.paddingVertical,

@@ -12,7 +12,7 @@ import {
   NavigationMenuDescription,
 } from "@/components/ui/NavigationMenu";
 import { LogoBadge } from "@/components/ui/LogoBadge";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   IconMenu2,
   IconX,
@@ -31,6 +31,7 @@ import {
   IconChartBar,
   IconBook,
   IconShieldCheck,
+  IconChevronDown,
 } from "@tabler/icons-react";
 
 interface SubNavItem {
@@ -100,113 +101,105 @@ const NAV_SECTIONS: NavSection[] = [
     title: "For Students",
     items: [
       {
-        title: "Student Login",
-        href: "https://placement.iitk.ac.in/login",
-        description: "Access the official SPO placement portal.",
-        external: true,
-        icon: <IconLogin size={16} />,
-      },
-      {
-        title: "Student Home",
-        href: "/students",
-        description: "Announcements, notices, and drive schedules.",
-        icon: <IconCompass size={16} />,
-      },
-      {
-        title: "Placement Insights",
-        href: "/insights",
-        description: "Historical placement statistics & trends.",
-        icon: <IconChartBar size={16} />,
-      },
-      {
-        title: "Placement Procedure",
-        href: "/students#steps",
-        description: "Step-by-step candidate workflow.",
-        icon: <IconFileText size={16} />,
-      },
-      {
-        title: "Preparation Resources",
-        href: "/students#resources",
-        description: "Interview archives, kits, and question banks.",
+        title: "Placement Preparation",
+        href: "/students/preparation",
+        description: "Resume guides, interview prep, and workshops.",
         icon: <IconBook size={16} />,
       },
       {
-        title: "Domain Roadmaps",
-        href: "/students#prepRoadmaps",
-        description: "Structured guides for Tech, Quant & Core.",
-        icon: <IconSchool size={16} />,
-      },
-    ],
-    featuredLink: {
-      label: "View Preparation Roadmaps →",
-      href: "/students#prepRoadmaps",
-    },
-  },
-  {
-    title: "Recruiter",
-    items: [
-      {
-        title: "Recruiter Portal",
-        href: "https://placement.iitk.ac.in/login",
-        description: "Submit JAFs and manage candidate selections.",
-        external: true,
-        icon: <IconLogin size={16} />,
-      },
-      {
-        title: "Companies Home",
-        href: "/companies",
-        description: "Recruit India's sharpest analytical minds.",
-        icon: <IconBriefcase size={16} />,
-      },
-      {
-        title: "Recruitment Procedure",
-        href: "/companies#steps",
-        description: "Drive timelines, slots, and guidelines.",
-        icon: <IconFileText size={16} />,
-      },
-      {
-        title: "Internship Policy",
-        href: "/companies#ipolicy",
-        description: "Regulations for summer internships.",
+        title: "Placement Policies",
+        href: "/students/policies",
+        description: "Official guidelines, rules, and code of conduct.",
         icon: <IconShieldCheck size={16} />,
       },
       {
-        title: "Campus Facilities",
-        href: "/companies#facilities",
-        description: "Test centers, auditoriums, and interview rooms.",
-        icon: <IconBuilding size={16} />,
+        title: "Internship Insights",
+        href: "/students/internships",
+        description: "Summer training and internship drives.",
+        icon: <IconBriefcase size={16} />,
       },
       {
-        title: "Placement Brochure",
-        href: "https://drive.google.com/file/d/1o7WZPfAJTp8gqzAysba2azJlmMhdacX6/view?usp=sharing",
-        description: "Download official recruitment guide PDF.",
+        title: "Past Statistics",
+        href: "/students/stats",
+        description: "Year-wise reports, trends, and department stats.",
+        icon: <IconChartBar size={16} />,
+      },
+      {
+        title: "Career Development Service",
+        href: "https://www.iitk.ac.in/cds/",
+        description: "Soft skills, guidance, and counseling sessions.",
         external: true,
-        icon: <IconBook size={16} />,
+        icon: <IconCompass size={16} />,
       },
     ],
     featuredLink: {
-      label: "Download Official Brochure PDF →",
-      href: "https://drive.google.com/file/d/1o7WZPfAJTp8gqzAysba2azJlmMhdacX6/view?usp=sharing",
+      label: "Read Placement Policy Guidelines →",
+      href: "/students/policies",
     },
   },
   {
-    title: "Contact",
+    title: "For Recruiters",
+    items: [
+      {
+        title: "Why Recruit IITK",
+        href: "/recruiters/why-iitk",
+        description: "World-class talent, rigor, and innovation.",
+        icon: <IconAward size={16} />,
+      },
+      {
+        title: "Placement Calendar & Process",
+        href: "/recruiters/procedure",
+        description: "Step-by-step procedure and recruitment timeline.",
+        icon: <IconCalendar size={16} />,
+      },
+      {
+        title: "Job Announcement Form (JAF)",
+        href: "/recruiters/jaf",
+        description: "Submit recruitment openings and requirements.",
+        icon: <IconFileText size={16} />,
+      },
+      {
+        title: "Recruiter Brochure",
+        href: "/brochure",
+        description: "Comprehensive information and institute highlights.",
+        icon: <IconBuilding size={16} />,
+      },
+      {
+        title: "Recruiting Facilities",
+        href: "/recruiters/facilities",
+        description: "Interview rooms, online proctoring, and logistics.",
+        icon: <IconBriefcase size={16} />,
+      },
+    ],
+    featuredLink: {
+      label: "Download Placement Brochure →",
+      href: "/brochure",
+    },
+  },
+  {
+    title: "Contact Us",
     items: [
       {
         title: "Placement Coordinators",
         href: "/placement-coordinators",
-        description: "Connect directly with student lead coordinators.",
+        description: "Connect with the overall student coordinators team.",
         icon: <IconUsers size={16} />,
       },
       {
-        title: "Administration & Leadership",
-        href: "/administration",
-        description: "Faculty leadership and office staff contacts.",
+        title: "SPO Office Staff",
+        href: "/contact/office",
+        description: "Administrative staff and official office contacts.",
         icon: <IconPhoneCall size={16} />,
+      },
+      {
+        title: "Reach IIT Kanpur",
+        href: "/contact/reach-us",
+        description: "Campus location, transport, and travel advisory.",
+        icon: <IconCompass size={16} />,
       },
     ],
     featuredLink: {
-      label: "Contact SPO Desk →",
+      label: "Connect with Placement Team →",
       href: "/contact",
     },
   },
@@ -214,15 +207,436 @@ const NAV_SECTIONS: NavSection[] = [
 
 export interface NavbarProps {
   tone?: "light" | "dark";
+  variant?: "default" | "bar";
   stickyScrolled?: boolean;
 }
 
-export function Navbar({ tone = "light", stickyScrolled = false }: NavbarProps) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-  const [openMobileSection, setOpenMobileSection] = React.useState<
-    string | null
-  >(null);
+type NavVariant = "default" | "bar";
+type NavTone = "light" | "dark";
 
+interface VariantConfig {
+  headerWrapper: (isScrolled: boolean, stickyScrolled: boolean) => string;
+  gridOrFlex: string;
+  logoSize: (isScrolled: boolean) => "default" | "hero" | "bar" | "bar-scrolled";
+  showWordmark: boolean;
+  pillOrInline: string;
+  triggerClass: string;
+  dropdownContentClass: string;
+  dropdownTone: "light" | "dark";
+  loginButtonClass: string;
+  loginText: { desktop: string; mobile: string };
+  mobileButtonClass: string;
+  mobileDrawerClass: string;
+  mobileItemClass: string;
+  mobileSectionClass: string;
+  mobileCTAClass: string;
+}
+
+const VARIANT_CONFIG: Record<NavVariant, Record<NavTone, VariantConfig>> = {
+  bar: {
+    dark: {
+      headerWrapper: (isScrolled) =>
+        `fixed top-0 left-0 right-0 w-full z-50 transition-all duration-250 ease-out ${
+          isScrolled
+            ? "h-14 bg-neutral-950/80 backdrop-blur-xl border-b border-white/10"
+            : "h-16 bg-transparent border-b border-transparent"
+        }`,
+      gridOrFlex:
+        "hidden lg:grid grid-cols-[1fr_auto_1fr] items-center w-full max-w-[1920px] mx-auto h-full",
+      logoSize: (isScrolled) => (isScrolled ? "bar-scrolled" : "bar"),
+      showWordmark: true,
+      pillOrInline: "flex items-center gap-1 bg-transparent border-0 p-0 shadow-none",
+      triggerClass:
+        "group relative inline-flex items-center gap-1.5 px-3 py-2 text-[14px] font-medium text-white/75 hover:text-white transition-colors duration-200 outline-none focus-visible:outline-2 focus-visible:outline-[#93c5fd] focus-visible:outline-offset-2 rounded-md cursor-pointer data-[popup-open]:text-white bg-transparent hover:bg-transparent",
+      dropdownContentClass:
+        "rounded-2xl border border-white/10 bg-neutral-950/90 p-3 backdrop-blur-2xl text-white shadow-[0_24px_60px_-12px_rgba(0,0,0,0.5)]",
+      dropdownTone: "dark",
+      loginButtonClass:
+        "inline-flex h-9 items-center justify-center gap-1.5 rounded-full bg-white px-4 text-[13px] font-medium text-neutral-950 transition-colors hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-[#93c5fd] focus-visible:outline-offset-2 shrink-0 select-none",
+      loginText: { desktop: "Portal Login", mobile: "Login" },
+      mobileButtonClass:
+        "flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-transparent text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-[#93c5fd] focus-visible:outline-offset-2 shrink-0",
+      mobileDrawerClass:
+        "fixed inset-x-3 top-16 z-50 max-h-[80svh] overflow-y-auto rounded-2xl border border-white/10 bg-neutral-950/95 p-5 backdrop-blur-2xl shadow-2xl lg:hidden flex flex-col gap-4 text-white",
+      mobileItemClass:
+        "min-h-[44px] flex items-center justify-between py-2 px-1 text-[13px] text-white/70 hover:text-white transition-colors rounded-lg",
+      mobileSectionClass: "border-b border-white/10 pb-3",
+      mobileCTAClass:
+        "min-h-[44px] flex w-full items-center justify-center gap-2 rounded-full bg-white hover:bg-neutral-200 py-3 text-center text-xs font-semibold uppercase tracking-wider text-neutral-950 transition-colors",
+    },
+    light: {
+      headerWrapper: (isScrolled) =>
+        `fixed top-0 left-0 right-0 w-full z-50 transition-all duration-250 ease-out ${
+          isScrolled
+            ? "h-14 bg-neutral-950/80 backdrop-blur-xl border-b border-white/10"
+            : "h-16 bg-transparent border-b border-transparent"
+        }`,
+      gridOrFlex:
+        "hidden lg:grid grid-cols-[1fr_auto_1fr] items-center w-full max-w-[1920px] mx-auto h-full",
+      logoSize: (isScrolled) => (isScrolled ? "bar-scrolled" : "bar"),
+      showWordmark: true,
+      pillOrInline: "flex items-center gap-1 bg-transparent border-0 p-0 shadow-none",
+      triggerClass:
+        "group relative inline-flex items-center gap-1.5 px-3 py-2 text-[14px] font-medium text-white/75 hover:text-white transition-colors duration-200 outline-none focus-visible:outline-2 focus-visible:outline-[#93c5fd] focus-visible:outline-offset-2 rounded-md cursor-pointer data-[popup-open]:text-white bg-transparent hover:bg-transparent",
+      dropdownContentClass:
+        "rounded-2xl border border-white/10 bg-neutral-950/90 p-3 backdrop-blur-2xl text-white shadow-[0_24px_60px_-12px_rgba(0,0,0,0.5)]",
+      dropdownTone: "dark",
+      loginButtonClass:
+        "inline-flex h-9 items-center justify-center gap-1.5 rounded-full bg-white px-4 text-[13px] font-medium text-neutral-950 transition-colors hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-[#93c5fd] focus-visible:outline-offset-2 shrink-0 select-none",
+      loginText: { desktop: "Portal Login", mobile: "Login" },
+      mobileButtonClass:
+        "flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-transparent text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-[#93c5fd] focus-visible:outline-offset-2 shrink-0",
+      mobileDrawerClass:
+        "fixed inset-x-3 top-16 z-50 max-h-[80svh] overflow-y-auto rounded-2xl border border-white/10 bg-neutral-950/95 p-5 backdrop-blur-2xl shadow-2xl lg:hidden flex flex-col gap-4 text-white",
+      mobileItemClass:
+        "min-h-[44px] flex items-center justify-between py-2 px-1 text-[13px] text-white/70 hover:text-white transition-colors rounded-lg",
+      mobileSectionClass: "border-b border-white/10 pb-3",
+      mobileCTAClass:
+        "min-h-[44px] flex w-full items-center justify-center gap-2 rounded-full bg-white hover:bg-neutral-200 py-3 text-center text-xs font-semibold uppercase tracking-wider text-neutral-950 transition-colors",
+    },
+  },
+  default: {
+    dark: {
+      headerWrapper: (_isScrolled, stickyScrolled) =>
+        `z-50 ${
+          stickyScrolled
+            ? "sticky top-2 z-50 mx-2 w-auto shrink-0 rounded-md border border-white/10 bg-neutral-950/85 px-4 py-2 backdrop-blur-xl sm:mx-3 sm:px-8 md:px-12"
+            : "relative w-full"
+        }`,
+      gridOrFlex: "flex w-full items-center justify-between",
+      logoSize: () => "hero",
+      showWordmark: false,
+      pillOrInline:
+        "flex items-center gap-1 rounded-xl px-2 py-1 backdrop-blur-xl transition-all bg-black/30 border border-white/15 text-white",
+      triggerClass:
+        "text-[13px] font-semibold tracking-tight px-2.5 xl:px-3.5 py-1.5 rounded-lg transition-all text-white/90 hover:text-white hover:bg-white/10 data-[popup-open]:bg-white/15 data-[popup-open]:text-white",
+      dropdownContentClass:
+        "rounded-xl border border-neutral-100/90 bg-white/98 p-4 backdrop-blur-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12),0_0_1px_rgba(0,0,0,0.06)] text-neutral-900",
+      dropdownTone: "light",
+      loginButtonClass:
+        "hidden sm:inline-flex items-center gap-1.5 rounded-md px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all shadow-sm active:scale-95 bg-white text-black hover:bg-neutral-200",
+      loginText: { desktop: "Portal Login", mobile: "Login" },
+      mobileButtonClass:
+        "lg:hidden flex h-9 w-9 items-center justify-center rounded-md border backdrop-blur-md shadow-sm transition-colors border-white/15 bg-black/40 text-white hover:bg-white/10",
+      mobileDrawerClass:
+        "fixed inset-x-4 top-20 z-50 max-h-[80vh] overflow-y-auto rounded-xl border border-neutral-200/90 bg-white/98 p-6 backdrop-blur-2xl shadow-2xl lg:hidden flex flex-col gap-4 text-neutral-900",
+      mobileItemClass: "flex items-center justify-between py-1.5 text-xs text-neutral-600 hover:text-black",
+      mobileSectionClass: "border-b border-neutral-100 pb-3",
+      mobileCTAClass:
+        "mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-neutral-950 hover:bg-neutral-800 py-3 text-center text-xs font-bold uppercase tracking-wider text-white shadow-md transition-colors",
+    },
+    light: {
+      headerWrapper: (_isScrolled, stickyScrolled) =>
+        `z-50 ${
+          stickyScrolled
+            ? "sticky top-2 z-50 mx-2 w-auto shrink-0 rounded-md border border-neutral-950/10 bg-neutral-50/85 px-4 py-2 backdrop-blur-xl sm:mx-3 sm:px-8 md:px-12"
+            : "relative w-full py-2 sm:py-3"
+        }`,
+      gridOrFlex: "flex w-full items-center justify-between px-4 sm:px-8 md:px-12",
+      logoSize: () => "default",
+      showWordmark: false,
+      pillOrInline:
+        "flex items-center gap-1 rounded-xl px-2 py-1 backdrop-blur-xl transition-all border border-white/60 bg-white/85 shadow-[0_4px_20px_rgba(0,0,0,0.06)] ring-1 ring-black/[0.03]",
+      triggerClass:
+        "text-[13px] font-semibold tracking-tight px-2.5 xl:px-3.5 py-1.5 rounded-lg transition-all text-neutral-800 hover:text-black hover:bg-neutral-100/90 data-[popup-open]:bg-neutral-100 data-[popup-open]:text-black",
+      dropdownContentClass:
+        "rounded-xl border border-neutral-100/90 bg-white/98 p-4 backdrop-blur-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12),0_0_1px_rgba(0,0,0,0.06)] text-neutral-900",
+      dropdownTone: "light",
+      loginButtonClass:
+        "hidden sm:inline-flex items-center gap-1.5 rounded-md px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all shadow-sm active:scale-95 bg-neutral-950 text-white hover:bg-neutral-800",
+      loginText: { desktop: "Portal Login", mobile: "Login" },
+      mobileButtonClass:
+        "lg:hidden flex h-9 w-9 items-center justify-center rounded-md border backdrop-blur-md shadow-sm transition-colors border-neutral-200/90 bg-white/95 text-neutral-800 hover:bg-neutral-100",
+      mobileDrawerClass:
+        "fixed inset-x-4 top-20 z-50 max-h-[80vh] overflow-y-auto rounded-xl border border-neutral-200/90 bg-white/98 p-6 backdrop-blur-2xl shadow-2xl lg:hidden flex flex-col gap-4 text-neutral-900",
+      mobileItemClass: "flex items-center justify-between py-1.5 text-xs text-neutral-600 hover:text-black",
+      mobileSectionClass: "border-b border-neutral-100 pb-3",
+      mobileCTAClass:
+        "mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-neutral-950 hover:bg-neutral-800 py-3 text-center text-xs font-bold uppercase tracking-wider text-white shadow-md transition-colors",
+    },
+  },
+};
+
+export function Navbar({
+  tone = "light",
+  variant = "default",
+  stickyScrolled = false,
+}: NavbarProps) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [openMobileSection, setOpenMobileSection] = React.useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const shouldReduceMotion = useReducedMotion();
+
+  const isBar = variant === "bar";
+  const config = VARIANT_CONFIG[variant][tone];
+
+  // Scroll threshold detection for bar variant
+  React.useEffect(() => {
+    if (!isBar) return;
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 24);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isBar]);
+
+  // Close mobile drawer on Escape key
+  React.useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isMobileMenuOpen]);
+
+  // Lock body scroll horizontally when drawer is open
+  React.useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflowX = "hidden";
+    }
+    return () => {
+      document.body.style.overflowX = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  if (isBar) {
+    return (
+      <header
+        className={config.headerWrapper(isScrolled, stickyScrolled)}
+        style={{
+          transitionDuration: shouldReduceMotion ? "0ms" : "250ms",
+        }}
+      >
+        {/* Desktop Layout (>=1024px): CSS Grid 1fr auto 1fr for exact centering */}
+        <div
+          className={config.gridOrFlex}
+          style={{ paddingInline: "clamp(20px, 5vw, 80px)" }}
+        >
+          {/* Col 1: Left - Logo & Brand Wordmark */}
+          <div className="justify-self-start flex items-center gap-2.5">
+            <LogoBadge size={config.logoSize(isScrolled)} />
+            {config.showWordmark ? (
+              <span className="font-sans font-medium text-[14px] tracking-[0.02em] text-white hidden min-[480px]:inline-block select-none">
+                SPO IITK
+              </span>
+            ) : null}
+          </div>
+
+          {/* Col 2: Center - Nav Links (Exact viewport center) */}
+          <nav aria-label="Primary" className="justify-self-center flex items-center">
+            <NavigationMenu tone={config.dropdownTone} delayDuration={80}>
+              <NavigationMenuList className={config.pillOrInline}>
+                {NAV_SECTIONS.map((section) => (
+                  <NavigationMenuItem key={section.title}>
+                    <NavigationMenuTrigger
+                      showChevron={false}
+                      className={config.triggerClass}
+                    >
+                      <span>{section.title}</span>
+                      <IconChevronDown
+                        size={12}
+                        stroke={2.5}
+                        className="shrink-0 text-white/50 transition-transform duration-200 group-hover:text-white/80 group-data-[popup-open]:rotate-180 group-data-[popup-open]:text-[#93c5fd]"
+                      />
+                      {/* Underline growing from the left */}
+                      <span
+                        className={`absolute bottom-1 left-3 right-3 h-[1px] bg-[#93c5fd] origin-left scale-x-0 group-hover:scale-x-100 group-data-[popup-open]:scale-x-100 ${
+                          shouldReduceMotion
+                            ? ""
+                            : "transition-transform duration-200 ease-out"
+                        }`}
+                      />
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent
+                      width={section.items.length > 4 ? "w-[38rem]" : "w-[22rem]"}
+                      className={config.dropdownContentClass}
+                    >
+                      <div
+                        className={`grid gap-2 ${
+                          section.items.length > 4 ? "grid-cols-2" : "grid-cols-1"
+                        }`}
+                      >
+                        {section.items.map((item) => (
+                          <NavigationMenuLink
+                            key={item.title}
+                            href={item.href}
+                            target={item.external ? "_blank" : undefined}
+                            rel={item.external ? "noopener noreferrer" : undefined}
+                            className="group flex items-start gap-3 rounded-xl p-3 text-left transition-colors hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-[#93c5fd] focus-visible:outline-offset-2"
+                          >
+                            <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-white transition-colors group-hover:bg-white/15">
+                              {item.icon}
+                            </div>
+                            <div className="flex flex-col gap-0.5">
+                              <div className="flex items-center gap-1 text-[14px] font-medium text-white">
+                                <span>{item.title}</span>
+                                {item.external ? (
+                                  <IconArrowUpRight
+                                    size={12}
+                                    className="text-white/40 group-hover:text-white"
+                                  />
+                                ) : null}
+                              </div>
+                              {item.description ? (
+                                <p className="text-[12px] text-white/55 leading-snug line-clamp-2">
+                                  {item.description}
+                                </p>
+                              ) : null}
+                            </div>
+                          </NavigationMenuLink>
+                        ))}
+                      </div>
+
+                      {section.featuredLink ? (
+                        <div className="mt-2 pt-2 border-t border-white/10 flex items-center justify-between px-2">
+                          <span className="font-mono text-white/40 text-[11px] uppercase tracking-wider">
+                            SPO IITK
+                          </span>
+                          <Link
+                            href={section.featuredLink.href}
+                            className="text-[12px] font-medium text-[#93c5fd] hover:text-white transition-colors flex items-center gap-1 focus-visible:outline-2 focus-visible:outline-[#93c5fd]"
+                          >
+                            {section.featuredLink.label}
+                          </Link>
+                        </div>
+                      ) : null}
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
+          </nav>
+
+          {/* Col 3: Right - Portal Login */}
+          <div className="justify-self-end flex items-center gap-3">
+            <Link
+              href="https://placement.iitk.ac.in/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={config.loginButtonClass}
+            >
+              <IconLogin size={14} className="shrink-0" />
+              <span>{config.loginText.desktop}</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Mobile Bar (<1024px) */}
+        <div className="flex lg:hidden items-center justify-between w-full h-full px-4 sm:px-6">
+          <div className="flex items-center gap-2">
+            <LogoBadge size={config.logoSize(isScrolled)} />
+            {config.showWordmark ? (
+              <span className="font-sans font-medium text-[14px] tracking-[0.02em] text-white hidden min-[480px]:inline-block select-none">
+                SPO IITK
+              </span>
+            ) : null}
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Link
+              href="https://placement.iitk.ac.in/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-9 items-center justify-center gap-1 rounded-full bg-white px-3 text-[12px] font-medium text-neutral-950 hover:bg-neutral-100 transition-colors shrink-0"
+            >
+              <IconLogin size={14} />
+              <span>{config.loginText.mobile}</span>
+            </Link>
+
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMobileMenuOpen}
+              className={config.mobileButtonClass}
+            >
+              {isMobileMenuOpen ? <IconX size={20} /> : <IconMenu2 size={20} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Slide-down Drawer */}
+        <AnimatePresence>
+          {isMobileMenuOpen ? (
+            <motion.div
+              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.2, ease: "easeOut" }}
+              className={config.mobileDrawerClass}
+            >
+              {NAV_SECTIONS.map((section) => {
+                const isExpanded = openMobileSection === section.title;
+                return (
+                  <div key={section.title} className={config.mobileSectionClass}>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setOpenMobileSection(isExpanded ? null : section.title)
+                      }
+                      className="min-h-[44px] flex w-full items-center justify-between py-2 text-[15px] font-medium text-white focus-visible:outline-2 focus-visible:outline-[#93c5fd]"
+                    >
+                      <span>{section.title}</span>
+                      <span className="text-xs text-white/50 font-mono">
+                        {isExpanded ? "−" : "+"}
+                      </span>
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isExpanded ? (
+                        <motion.div
+                          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, height: 0 }}
+                          className="flex flex-col gap-1 pt-1 pl-2"
+                        >
+                          {section.items.map((item) => (
+                            <Link
+                              key={item.title}
+                              href={item.href}
+                              target={item.external ? "_blank" : undefined}
+                              rel={item.external ? "noopener noreferrer" : undefined}
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className={config.mobileItemClass}
+                            >
+                              <span className="flex items-center gap-2.5">
+                                <span className="text-white/60">{item.icon}</span>
+                                <span>{item.title}</span>
+                              </span>
+                              {item.external ? (
+                                <IconArrowUpRight size={13} className="text-white/40" />
+                              ) : null}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      ) : null}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+
+              <Link
+                href="https://placement.iitk.ac.in/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={config.mobileCTAClass}
+              >
+                <IconLogin size={15} stroke={2.2} />
+                <span>Portal Login</span>
+              </Link>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
+      </header>
+    );
+  }
+
+  // Default Variant (homepage and legacy usages untouched)
   const isDark = tone === "dark";
   const stickySurface = isDark
     ? "border-white/10 bg-neutral-950/85"
@@ -243,9 +657,7 @@ export function Navbar({ tone = "light", stickyScrolled = false }: NavbarProps) 
       >
         {/* Div 1: Left - Logo & Brand */}
         <div className="flex items-center gap-3">
-          <LogoBadge
-            size={isDark ? "hero" : "default"}
-          />
+          <LogoBadge size={isDark ? "hero" : "default"} />
         </div>
 
         {/* Div 2: Center - Nav Links with Dropdowns (hidden below lg) */}

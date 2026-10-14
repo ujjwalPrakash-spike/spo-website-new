@@ -21,17 +21,21 @@ function cn(...inputs: ClassValue[]) {
 export type NavigationMenuSize = "default" | "compact";
 export type NavigationMenuAlign = "start" | "center" | "end";
 
+export type NavigationMenuTone = "light" | "dark";
+
 export interface NavigationMenuProps
   extends Omit<
     React.ComponentPropsWithoutRef<typeof BaseNav.Root>,
     "value" | "defaultValue" | "onValueChange" | "delay"
   > {
   size?: NavigationMenuSize;
+  tone?: NavigationMenuTone;
   delayDuration?: number;
   skipDelayOnSwitch?: boolean;
   value?: string | null;
   defaultValue?: string | null;
   onValueChange?: (value: string | null) => void;
+  popupClassName?: string;
 }
 
 export type NavigationMenuListProps = React.ComponentPropsWithoutRef<typeof BaseNav.List>;
@@ -86,6 +90,12 @@ const overlaySurfaceClass = cn(
   "backdrop-blur-2xl ring-1 ring-black/[0.03]",
 );
 
+const darkOverlaySurfaceClass = cn(
+  "border border-white/10 bg-neutral-950/90 text-white",
+  "shadow-[0_24px_60px_-12px_rgba(0,0,0,0.5),0_4px_16px_rgba(0,0,0,0.2)]",
+  "backdrop-blur-2xl ring-1 ring-white/[0.05]",
+);
+
 const popupMotionClass = cn(
   "origin-[var(--transform-origin)] transform-gpu outline-none",
   "transition-[opacity,scale,transform] duration-[200ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
@@ -110,12 +120,14 @@ export const NavigationMenu = React.forwardRef<
 >(function NavigationMenu(
   {
     size = "default",
+    tone = "light",
     delayDuration = 100,
     skipDelayOnSwitch: _skip,
     value: valueProp,
     defaultValue,
     onValueChange,
     className,
+    popupClassName,
     children,
     "aria-label": ariaLabel = "Main navigation",
     ...props
@@ -148,14 +160,15 @@ export const NavigationMenu = React.forwardRef<
         <BaseNav.Portal>
           <BaseNav.Positioner
             collisionPadding={16}
-            sideOffset={10}
+            sideOffset={tone === "dark" ? 8 : 10}
             className="z-[130] outline-none"
           >
             <BaseNav.Popup
               className={cn(
-                overlaySurfaceClass,
+                tone === "dark" ? darkOverlaySurfaceClass : overlaySurfaceClass,
                 "rounded-2xl",
                 popupMotionClass,
+                popupClassName,
               )}
             >
               <BaseNav.Viewport className={viewportMotionClass} />

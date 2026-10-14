@@ -38,9 +38,7 @@ export default async function PastTeamPage({ params }: PageProps) {
 
   return (
     <main className="relative w-full bg-neutral-950 text-white selection:bg-[#93c5fd] selection:text-neutral-950">
-      <div className="w-full shrink-0">
-        <Navbar tone="dark" stickyScrolled={true} />
-      </div>
+      <Navbar tone="dark" variant="bar" />
 
       <Section surface="dark" className="pt-24 sm:pt-32">
         <div className="mb-6">

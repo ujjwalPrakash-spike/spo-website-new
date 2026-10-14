@@ -20,7 +20,7 @@ export function AcademicsSection({
     <section
       id={content.id}
       aria-label={content.title}
-      className="w-full bg-neutral-50 text-neutral-950 scroll-mt-[130px]"
+      className="w-full bg-neutral-50 text-neutral-950 scroll-mt-[120px]"
       style={{
         paddingInline: ABOUT_TOKENS.paddingInline,
         paddingTop: ABOUT_TOKENS.paddingVertical,

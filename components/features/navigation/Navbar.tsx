@@ -22,6 +22,7 @@ import {
 } from "@tabler/icons-react";
 import { NAV_INSET } from "@/lib/tokens";
 import { NAV_SECTIONS } from "@/lib/site/navigation";
+import { useScrolled } from "@/hooks/useScrolled";
 
 export interface NavbarProps {
   tone?: "light" | "dark";
@@ -182,22 +183,10 @@ export function Navbar({
 }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [openMobileSection, setOpenMobileSection] = React.useState<string | null>(null);
-  const [isScrolled, setIsScrolled] = React.useState(false);
-  const shouldReduceMotion = useReducedMotion();
-
   const isBar = variant === "bar";
+  const isScrolled = useScrolled(24, isBar);
+  const shouldReduceMotion = useReducedMotion();
   const config = VARIANT_CONFIG[variant][tone];
-
-  // Scroll threshold detection for bar variant
-  React.useEffect(() => {
-    if (!isBar) return;
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 24);
-    };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isBar]);
 
   // Close mobile drawer on Escape key
   React.useEffect(() => {

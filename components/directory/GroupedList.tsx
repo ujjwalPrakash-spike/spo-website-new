@@ -35,7 +35,7 @@ export function GroupedList<T>({
           key={group}
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 py-12 first:pt-0 last:pb-0"
         >
-          <div className="lg:col-span-4 lg:sticky lg:top-[120px] self-start">
+          <div className="lg:col-span-4 lg:sticky lg:top-[var(--header-stack-h)] self-start">
             <h3 className="font-medium text-2xl tracking-tight text-neutral-950 dark:text-white">
               {group}
             </h3>

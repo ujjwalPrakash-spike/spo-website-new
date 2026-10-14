@@ -16,7 +16,7 @@ export function IntroSection({
     <section
       id={content.id}
       aria-label={content.title}
-      className="w-full bg-neutral-950 text-white scroll-mt-[120px]"
+      className="w-full bg-neutral-950 text-white scroll-mt-[var(--header-stack-h)]"
       style={{
         paddingInline: ABOUT_TOKENS.paddingInline,
         paddingTop: ABOUT_TOKENS.paddingVertical,

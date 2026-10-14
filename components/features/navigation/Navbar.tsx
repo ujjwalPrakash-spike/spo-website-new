@@ -33,6 +33,7 @@ import {
   IconShieldCheck,
   IconChevronDown,
 } from "@tabler/icons-react";
+import { NAV_INSET } from "@/lib/tokens";
 
 interface SubNavItem {
   title: string;
@@ -414,7 +415,7 @@ export function Navbar({
         {/* Desktop Layout (>=1024px): CSS Grid 1fr auto 1fr for exact centering */}
         <div
           className={config.gridOrFlex}
-          style={{ paddingInline: "clamp(20px, 5vw, 80px)" }}
+          style={{ paddingInline: NAV_INSET }}
         >
           {/* Col 1: Left - Logo & Brand Wordmark */}
           <div className="justify-self-start flex items-center gap-2.5">

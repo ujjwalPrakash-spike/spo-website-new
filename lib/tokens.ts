@@ -7,6 +7,8 @@ export const NAV_HEIGHT_SCROLLED = 56;
 export const NAV_HEIGHT_MOBILE = 56;
 export const NAV_HEIGHT_MOBILE_SCROLLED = 52;
 export const NAV_INSET = "clamp(20px, 5vw, 80px)";
+export const HEADER_STACK_HEIGHT = 120;
+export const ACCENT_BLUE = "#93c5fd";
 
 export const TOKENS = {
   containerMax: "1440px",

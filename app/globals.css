@@ -48,6 +48,10 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --spacing-nav: 56px;
+  --spacing-nav-top: 64px;
+  --spacing-subnav: 56px;
+  --spacing-header-stack: 120px;
 }
 
 /* Custom scrollbar */
@@ -84,6 +88,13 @@
 }
 
 :root {
+  --nav-h: 56px;
+  --nav-h-top: 64px;
+  --subnav-h: 56px;
+  --header-stack-h: 120px;
+  --nav-inset: clamp(20px, 5vw, 80px);
+  --accent-blue: #93c5fd;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);

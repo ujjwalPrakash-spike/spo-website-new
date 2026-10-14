@@ -22,7 +22,7 @@ export function HeroSection() {
         holdDistance={0.4}
         overlayScrim={0}
         content={
-          <div className="w-full h-svh flex flex-col justify-between px-[clamp(20px,5vw,80px)] select-none">
+          <div className="w-full h-svh flex flex-col justify-between px-[var(--nav-inset)] select-none">
             {/* Region 1: Header row */}
             <div className="w-full pt-[clamp(12px,2.5vh,28px)] shrink-0">
               <Navbar tone="dark" />

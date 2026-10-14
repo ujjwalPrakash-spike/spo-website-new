@@ -28,7 +28,7 @@ export function CampusLifeSection({
     <section
       id={content.id}
       aria-label={content.title}
-      className="w-full bg-neutral-50 text-neutral-950 scroll-mt-[120px]"
+      className="w-full bg-neutral-50 text-neutral-950 scroll-mt-[var(--header-stack-h)]"
     >
       <div
         className="mx-auto max-w-[1440px]"

@@ -10,7 +10,7 @@ export interface IndexBarItem {
 }
 
 interface StickyIndexBarProps {
-  items: IndexBarItem[];
+  items: readonly IndexBarItem[] | IndexBarItem[];
   trailing?: React.ReactNode;
 }
 

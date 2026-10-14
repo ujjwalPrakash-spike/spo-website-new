@@ -12,7 +12,7 @@ import { GroupedList } from "@/components/directory/GroupedList";
 import { IndexList } from "@/components/directory/IndexList";
 import { EmptyResults } from "@/components/directory/EmptyResults";
 import { ContactLinks } from "@/components/shared/ui/ContactLinks";
-import { formatPhone, phoneHref } from "@/lib/format";
+import { formatPhone, phoneHref } from "@/lib/utils/format";
 import { COORDINATOR_SECTIONS } from "@/lib/coordinators/sections";
 import { OVERALL_COORDINATORS } from "@/lib/coordinators/overall";
 import { ASSISTANT_COORDINATORS } from "@/lib/coordinators/assistants";

@@ -1,6 +1,6 @@
 import React from "react";
 import { CopyButton } from "./CopyButton";
-import { formatPhone, phoneHref } from "@/lib/format";
+import { formatPhone, phoneHref } from "@/lib/utils/format";
 import type { Surface } from "@/lib/tokens";
 
 interface ContactLinksProps {

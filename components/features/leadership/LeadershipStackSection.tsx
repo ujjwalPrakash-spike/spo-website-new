@@ -1,4 +1,4 @@
-import { LEADERSHIP_SECTION_DATA } from "./leadershipData";
+import { LEADERSHIP_SECTION_DATA } from "@/lib/home/leadership";
 import { LeadershipCard } from "./LeadershipCard";
 
 export function LeadershipStackSection() {

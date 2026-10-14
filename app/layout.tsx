@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter_Tight, Geist_Mono } from "next/font/google";
-import { SITE_METADATA } from "@/lib/constants";
+import { SITE_METADATA } from "@/lib/site/constants";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { SiteFooter } from "@/components/ui/SiteFooter";
 import "./globals.css";

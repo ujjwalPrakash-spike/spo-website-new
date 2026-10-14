@@ -4,7 +4,7 @@
  */
 
 import type { Person } from "./types";
-import { toTitleCase } from "../format";
+import { toTitleCase } from "@/lib/utils/format";
 
 export const DEPARTMENT_COORDINATORS: Person[] = [
   { name: "Divyansh Singh", department: "Aerospace Engineering", email: "dsingh25@iitk.ac.in", phone: "6306635810" },

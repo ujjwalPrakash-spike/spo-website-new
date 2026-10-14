@@ -1,6 +1,6 @@
 "use client";
 
-import { HERO_CONFIG } from "@/lib/constants";
+import { HERO_CONFIG } from "@/lib/site/constants";
 import { ScrollShrink } from "@/components/ui/ScrollShrink";
 import { Navbar } from "@/components/features/navigation/Navbar";
 import { HeroContent } from "./HeroContent";

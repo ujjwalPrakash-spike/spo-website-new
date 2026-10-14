@@ -20,7 +20,7 @@ import {
   FOOTER_CONTACT,
   FOOTER_SOCIAL,
   type FooterLink,
-} from "@/lib/footer";
+} from "@/lib/site/footer";
 
 function NavLink({ link }: { link: FooterLink }) {
   const external = link.external ?? false;

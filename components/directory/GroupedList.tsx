@@ -9,7 +9,7 @@
  */
 
 import React from "react";
-import { groupBy } from "@/lib/collections";
+import { groupBy } from "@/lib/utils/collections";
 import type { Surface } from "@/lib/tokens";
 
 interface GroupedListProps<T> {

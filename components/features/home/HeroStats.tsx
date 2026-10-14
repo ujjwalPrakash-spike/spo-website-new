@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { HERO_STATS } from "@/lib/constants";
+import { HERO_STATS } from "@/lib/home/hero-stats";
 
 export function HeroStats() {
   const shouldReduceMotion = useReducedMotion();

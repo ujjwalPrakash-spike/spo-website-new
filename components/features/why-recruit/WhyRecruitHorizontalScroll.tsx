@@ -8,7 +8,7 @@ import {
   useTransform,
   useReducedMotion,
 } from "framer-motion";
-import { WHY_RECRUIT_PANELS, type WhyRecruitPanel } from "./whyRecruitTimelineData";
+import { WHY_RECRUIT_PANELS, type WhyRecruitPanel } from "@/lib/home/why-recruit";
 
 function FactPanel({
   panel,

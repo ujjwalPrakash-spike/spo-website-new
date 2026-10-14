@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Image from "next/image";
-import { NEWS_ITEMS, type NewsItem } from "@/lib/news";
+import { NEWS_ITEMS, type NewsItem } from "@/lib/home/news";
 
 function NewsRow({ item, index }: { item: NewsItem; index: number }) {
   const shouldReduceMotion = useReducedMotion();

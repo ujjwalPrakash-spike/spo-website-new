@@ -7,7 +7,7 @@ import { TOKENS } from "@/lib/tokens";
 import { OVERALL_COORDINATORS } from "@/lib/coordinators/overall";
 import { ASSISTANT_COORDINATORS } from "@/lib/coordinators/assistants";
 import { DEPARTMENT_COORDINATORS } from "@/lib/coordinators/departments";
-import { countDistinct } from "@/lib/collections";
+import { countDistinct } from "@/lib/utils/collections";
 
 export function CoordinatorsHero() {
   const shouldReduceMotion = useReducedMotion();

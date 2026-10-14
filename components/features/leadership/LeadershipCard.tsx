@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LeadershipMessage } from "./leadershipData";
+import { LeadershipMessage } from "@/lib/home/leadership";
 
 interface LeadershipCardProps {
   message: LeadershipMessage;

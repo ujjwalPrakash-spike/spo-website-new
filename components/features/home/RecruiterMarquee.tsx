@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { RECRUITER_LOGOS, type RecruiterLogo } from "@/lib/recruiters";
+import { RECRUITER_LOGOS, type RecruiterLogo } from "@/lib/home/recruiters";
 
 function CountUpRecruiters() {
   const shouldReduceMotion = useReducedMotion();

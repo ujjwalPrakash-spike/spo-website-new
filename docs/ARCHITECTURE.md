@@ -3,7 +3,11 @@
 ## Directory Structure
 - `lib/`: Pure data, helpers, collections, tokens, and formatting.
   - `lib/tokens.ts`: Global surface records, sizing, insets, and easing.
+  - `lib/home/`: Homepage-specific datasets (news, recruiters, why-recruit, leadership, hero-stats).
+  - `lib/site/`: Site-wide datasets and configuration (constants, navigation, footer).
   - `lib/coordinators/`: Placement coordinators datasets and section definitions.
+  - `lib/about/`: About page section definitions and tokens.
+  - `lib/utils/`: Formatting helpers, collection utilities, and classname merging (`cn`).
 - `components/shared/`: Agnostic UI, layout, and motion primitives (Section, ChapterHeader, StickyIndexBar, Reveal, CountUp, CopyButton, ContactLinks, Portrait, ArrowCircle, SearchInput). Zero feature imports.
 - `components/directory/`: Generic reusable directory primitives (DirectoryProvider, useDirectorySearch, PortraitGrid, RowList, GroupedList, IndexList, EmptyResults).
 - `components/features/`: Feature-specific composition components.

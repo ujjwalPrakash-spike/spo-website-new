@@ -58,7 +58,7 @@ export function AboutHero({
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative w-full min-h-[88svh] bg-neutral-950 text-white flex flex-col justify-between pt-16">
+    <section className="relative w-full min-h-screen bg-neutral-950 text-white flex flex-col justify-between pt-16">
       <Navbar tone="dark" variant="bar" />
 
       {/* Spacer to push content down and create intentional empty space */}

@@ -3,12 +3,12 @@
 import type { Metadata } from "next";
 import { AboutHero } from "@/components/features/about/AboutHero";
 import { StickyIndexBar } from "@/components/shared/layout/StickyIndexBar";
-import { IntroSection } from "@/components/features/about/IntroSection";
 import { AcademicsSection } from "@/components/features/about/AcademicsSection";
 import { ResearchSection } from "@/components/features/about/ResearchSection";
 import { AlumniSection } from "@/components/features/about/AlumniSection";
 import { FacultySection } from "@/components/features/about/FacultySection";
 import { CampusLifeSection } from "@/components/features/about/CampusLifeSection";
+import { FestivalsSection } from "@/components/features/about/FestivalsSection";
 import { ABOUT_HERO_CONTENT, ABOUT_SECTIONS } from "@/lib/about/content";
 
 export const metadata: Metadata = {
@@ -26,12 +26,12 @@ export default function AboutPage() {
     <main className="relative w-full bg-neutral-50 text-neutral-950 selection:bg-[#93c5fd] selection:text-neutral-950">
       <AboutHero />
       <StickyIndexBar items={ABOUT_SECTIONS} />
-      <IntroSection />
       <AcademicsSection />
       <ResearchSection />
       <AlumniSection />
       <FacultySection />
       <CampusLifeSection />
+      <FestivalsSection />
     </main>
   );
 }

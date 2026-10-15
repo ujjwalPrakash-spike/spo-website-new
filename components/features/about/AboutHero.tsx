@@ -1,12 +1,14 @@
 "use client";
 
-// Editorial hero section for /about route with bottom-anchored typography and facts strip.
+// Chapter 01: Complete "About IIT Kanpur" section combining Hero typography, facts, narrative, and campus imagery on dark surface.
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { Navbar } from "@/components/features/navigation/Navbar";
+import { RevealText, RevealImage } from "@/components/shared/motion/Reveal";
 import { ABOUT_TOKENS } from "@/lib/about/tokens";
-import { ABOUT_HERO_CONTENT } from "@/lib/about/content";
+import { ABOUT_HERO_CONTENT, ABOUT_INTRO_CONTENT } from "@/lib/about/content";
 import { ABOUT_FACTS, type FactItem } from "@/lib/about/facts";
 
 function FactCounter({ item }: { item: FactItem }) {
@@ -50,25 +52,29 @@ function FactCounter({ item }: { item: FactItem }) {
 
 export function AboutHero({
   content = ABOUT_HERO_CONTENT,
+  introContent = ABOUT_INTRO_CONTENT,
   facts = ABOUT_FACTS,
 }: {
   content?: typeof ABOUT_HERO_CONTENT;
+  introContent?: typeof ABOUT_INTRO_CONTENT;
   facts?: FactItem[];
 }) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative w-full min-h-screen bg-neutral-950 text-white flex flex-col justify-between pt-16">
+    <section
+      id="about"
+      aria-label="About IIT Kanpur"
+      className="relative w-full bg-neutral-950 text-white scroll-mt-[var(--header-stack-h)] pt-16"
+    >
       <Navbar tone="dark" variant="bar" />
 
-      {/* Spacer to push content down and create intentional empty space */}
-      <div className="flex-1 min-h-[14vh]" />
-
-      {/* Bottom-anchored typography block */}
+      {/* Hero Header Block */}
       <div
-        className="mx-auto w-full max-w-[1440px] shrink-0"
+        className="mx-auto w-full max-w-[1440px]"
         style={{
           paddingInline: ABOUT_TOKENS.paddingInline,
+          paddingTop: "clamp(32px, 5vh, 64px)",
           paddingBottom: "clamp(48px, 8vh, 80px)",
         }}
       >
@@ -119,6 +125,49 @@ export function AboutHero({
             ))}
           </motion.div>
         </div>
+      </div>
+
+      {/* Narrative & Campus Imagery Block */}
+      <div
+        className="mx-auto max-w-[1440px]"
+        style={{
+          paddingInline: ABOUT_TOKENS.paddingInline,
+          paddingBottom: ABOUT_TOKENS.paddingVertical,
+        }}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-12 lg:mb-16">
+          <div className="lg:col-span-5">
+            <RevealText>
+              <p
+                className="font-medium text-white leading-[1.4] text-pretty"
+                style={{ fontSize: "clamp(1.125rem, 1.6vw, 1.5rem)" }}
+              >
+                {introContent.quote}
+              </p>
+            </RevealText>
+          </div>
+
+          <div className="lg:col-span-7 flex flex-col gap-5">
+            {introContent.paragraphs.map((p, i) => (
+              <RevealText key={i} delay={i * 0.07}>
+                <p className="text-[17px] leading-[1.7] text-white/75 max-w-[62ch] text-pretty">
+                  {p}
+                </p>
+              </RevealText>
+            ))}
+          </div>
+        </div>
+
+        {/* Entrance wall image */}
+        <RevealImage className="relative w-full aspect-[4/3] sm:aspect-[21/9]">
+          <Image
+            src={introContent.image.src}
+            alt={introContent.image.alt}
+            fill
+            sizes="(max-width: 1440px) 100vw, 1440px"
+            className="object-cover"
+          />
+        </RevealImage>
       </div>
     </section>
   );

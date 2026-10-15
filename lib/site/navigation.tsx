@@ -128,14 +128,8 @@ export const NAV_SECTIONS: NavSection[] = [
         icon: <IconAward size={16} />,
       },
       {
-        title: "Placement Calendar & Process",
-        href: "/recruiters/procedure",
-        description: "Step-by-step procedure and recruitment timeline.",
-        icon: <IconCalendar size={16} />,
-      },
-      {
         title: "Job Announcement Form (JAF)",
-        href: "/recruiters/jaf",
+        href: "/recruiters/why-iitk#resources",
         description: "Submit recruitment openings and requirements.",
         icon: <IconFileText size={16} />,
       },
@@ -147,7 +141,7 @@ export const NAV_SECTIONS: NavSection[] = [
       },
       {
         title: "Recruiting Facilities",
-        href: "/recruiters/facilities",
+        href: "/recruiters/why-iitk#facilities",
         description: "Interview rooms, online proctoring, and logistics.",
         icon: <IconBriefcase size={16} />,
       },

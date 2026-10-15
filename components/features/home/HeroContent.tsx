@@ -136,7 +136,7 @@ export function HeroContent() {
         className="flex flex-col min-[480px]:flex-row items-stretch min-[480px]:items-center gap-3 w-full min-[480px]:w-auto"
       >
         <Link
-          href="/companies"
+          href="/recruiters/why-iitk"
           className="h-[clamp(40px,5.5vh,48px)] px-6 rounded-md bg-white text-black font-semibold text-sm inline-flex items-center justify-center hover:bg-neutral-200 transition-colors shadow-sm active:scale-95"
         >
           Recruit with us

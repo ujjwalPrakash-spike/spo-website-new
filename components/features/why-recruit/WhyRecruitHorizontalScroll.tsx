@@ -145,7 +145,7 @@ function CtaPanel() {
               Recruiter portal login
             </Link>
             <Link
-              href="/companies#steps"
+              href="/recruiters/why-iitk#steps"
               className="h-[clamp(40px,5.5vh,48px)] px-6 rounded-md bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold text-sm inline-flex items-center justify-center hover:bg-white/20 transition-colors active:scale-95"
             >
               Recruitment procedure
@@ -301,7 +301,7 @@ export function WhyRecruitHorizontalScroll({ className = "" }: { className?: str
                   Recruiter portal login
                 </Link>
                 <Link
-                  href="/companies#steps"
+                  href="/recruiters/why-iitk#steps"
                   className="h-[clamp(40px,5.5vh,48px)] px-6 rounded-md bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold text-sm inline-flex items-center justify-center hover:bg-white/20 transition-colors active:scale-95"
                 >
                   Recruitment procedure

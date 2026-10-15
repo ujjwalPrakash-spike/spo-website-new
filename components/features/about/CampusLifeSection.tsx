@@ -118,7 +118,7 @@ export function CampusLifeSection({
           </div>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <Link
-              href="/companies"
+              href="/recruiters/why-iitk"
               className="h-[46px] px-6 rounded-md bg-neutral-950 text-white font-semibold text-sm inline-flex items-center justify-center hover:bg-neutral-800 transition-colors shadow-sm active:scale-95"
             >
               Recruit with us

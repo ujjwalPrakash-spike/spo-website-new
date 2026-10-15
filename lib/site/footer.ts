@@ -26,15 +26,15 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "For Companies",
     links: [
-      { label: "Steps - Company registration", href: "/companies#steps" },
-      { label: "Recruitment Procedure and Policy", href: "/companies#policy" },
+      { label: "Steps - Company registration", href: "/recruiters/why-iitk#steps" },
+      { label: "Recruitment Procedure and Policy", href: "/recruiters/why-iitk#policy" },
       {
         label: "Brochures",
         href: "https://drive.google.com/file/d/1o7WZPfAJTp8gqzAysba2azJlmMhdacX6/view?usp=sharing",
         external: true,
       },
       { label: "Departmental Brochures", href: "/departmental-brochure" },
-      { label: "FAQs", href: "/companies#faqs" },
+      { label: "FAQs", href: "/recruiters/why-iitk#faqs" },
     ],
   },
   {

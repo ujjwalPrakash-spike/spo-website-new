@@ -8,7 +8,6 @@ import { ResearchSection } from "@/components/features/about/ResearchSection";
 import { AlumniSection } from "@/components/features/about/AlumniSection";
 import { FacultySection } from "@/components/features/about/FacultySection";
 import { CampusLifeSection } from "@/components/features/about/CampusLifeSection";
-import { FestivalsSection } from "@/components/features/about/FestivalsSection";
 import { ABOUT_HERO_CONTENT, ABOUT_SECTIONS } from "@/lib/about/content";
 
 export const metadata: Metadata = {
@@ -31,7 +30,6 @@ export default function AboutPage() {
       <AlumniSection />
       <FacultySection />
       <CampusLifeSection />
-      <FestivalsSection />
     </main>
   );
 }

@@ -57,7 +57,7 @@ const VARIANT_CONFIG: Record<NavVariant, Record<NavTone, VariantConfig>> = {
       headerWrapper: (isScrolled) =>
         `fixed top-0 left-0 right-0 w-full z-50 transition-all duration-250 ease-out ${
           isScrolled
-            ? "h-14 bg-neutral-950/80 backdrop-blur-xl border-b border-white/10"
+            ? "h-14 bg-neutral-950 border-b border-white/10"
             : "h-16 bg-transparent border-b border-transparent"
         }`,
       gridOrFlex:
@@ -87,7 +87,7 @@ const VARIANT_CONFIG: Record<NavVariant, Record<NavTone, VariantConfig>> = {
       headerWrapper: (isScrolled) =>
         `fixed top-0 left-0 right-0 w-full z-50 transition-all duration-250 ease-out ${
           isScrolled
-            ? "h-14 bg-neutral-950/80 backdrop-blur-xl border-b border-white/10"
+            ? "h-14 bg-neutral-950 border-b border-white/10"
             : "h-16 bg-transparent border-b border-transparent"
         }`,
       gridOrFlex:

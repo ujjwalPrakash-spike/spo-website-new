@@ -10,7 +10,6 @@ export const ABOUT_SECTIONS = [
   { id: "alumni", index: "04", label: "Alumni" },
   { id: "faculty", index: "05", label: "Faculty" },
   { id: "activities", index: "06", label: "Students' Life" },
-  { id: "festivals", index: "07", label: "Festivals" },
 ] as const;
 
 export const ABOUT_HERO_CONTENT = {

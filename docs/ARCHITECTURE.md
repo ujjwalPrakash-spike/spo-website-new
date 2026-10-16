@@ -30,3 +30,12 @@
 3. Wrap page content in `DirectoryProvider` with a custom `getSearchText` mapper.
 4. Compose sections using `Section`, `ChapterHeader`, `PortraitGrid`, `RowList`, or `GroupedList`.
 5. Export metadata and render the composition in `app/{route}/page.tsx`.
+
+## Insights URL Query Contract
+The `/insights` directory synchronizes state via `history.replaceState` using query parameters:
+- `q`: string keyword filter for candidate name, role, company, or year.
+- `type`: filter by insight classification (`"all"` | `"placement"` | `"internship"`).
+- `year`: filter by graduating cohort (`"all"` | `"2025-26"` | `"2024-25"` | `"2023-24"`).
+- `company`: filter by exact/canonical company name (e.g. `?company=Barclays`).
+- `sort`: result ordering (`"newest"` | `"company"` | `"name"`). Deep-links from the `/students` ticker and handoff search restore these views directly.
+

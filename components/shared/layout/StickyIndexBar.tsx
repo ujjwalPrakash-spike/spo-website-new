@@ -2,11 +2,15 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import Link from "next/link";
+import { IconArrowUpRight } from "@tabler/icons-react";
 import { TOKENS } from "@/lib/tokens";
 
 export interface IndexBarItem {
   id: string;
   label: string;
+  href?: string;
+  isExternalLink?: boolean;
 }
 
 interface StickyIndexBarProps {
@@ -15,18 +19,20 @@ interface StickyIndexBarProps {
 }
 
 export function StickyIndexBar({ items, trailing }: StickyIndexBarProps) {
-  const [activeId, setActiveId] = useState<string>(items[0]?.id || "");
+  const onPageItems = items.filter((it) => !it.isExternalLink && !it.href?.startsWith("/"));
+  const [activeId, setActiveId] = useState<string>(onPageItems[0]?.id || "");
   const shouldReduceMotion = useReducedMotion();
   const navRef = useRef<HTMLElement>(null);
-  const itemRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+  const itemRefs = useRef<Record<string, HTMLElement | null>>({});
 
   useEffect(() => {
+    if (onPageItems.length === 0) return;
     const handleScroll = () => {
       const scrollPos = window.scrollY + 200;
-      for (let i = items.length - 1; i >= 0; i--) {
-        const el = document.getElementById(items[i].id);
+      for (let i = onPageItems.length - 1; i >= 0; i--) {
+        const el = document.getElementById(onPageItems[i].id);
         if (el && el.offsetTop <= scrollPos) {
-          setActiveId(items[i].id);
+          setActiveId(onPageItems[i].id);
           break;
         }
       }
@@ -34,7 +40,7 @@ export function StickyIndexBar({ items, trailing }: StickyIndexBarProps) {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [items]);
+  }, [items, onPageItems]);
 
   useEffect(() => {
     const activeEl = itemRefs.current[activeId];
@@ -80,7 +86,28 @@ export function StickyIndexBar({ items, trailing }: StickyIndexBarProps) {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {items.map((sec, idx) => {
-              const isActive = activeId === sec.id;
+              const isExternal = Boolean(sec.isExternalLink || sec.href?.startsWith("/"));
+              const isActive = !isExternal && activeId === sec.id;
+
+              if (isExternal && sec.href) {
+                return (
+                  <Link
+                    key={sec.id}
+                    ref={(el) => {
+                      itemRefs.current[sec.id] = el;
+                    }}
+                    href={sec.href}
+                    className="relative shrink-0 text-[13px] py-1 text-white/50 hover:text-white transition-colors flex items-center gap-1"
+                  >
+                    <span className="font-mono text-white/40 mr-1.5">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <span>{sec.label}</span>
+                    <IconArrowUpRight size={13} className="text-white/40" />
+                  </Link>
+                );
+              }
+
               return (
                 <a
                   key={sec.id}

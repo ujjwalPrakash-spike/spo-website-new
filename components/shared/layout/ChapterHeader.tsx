@@ -6,8 +6,10 @@ interface ChapterHeaderProps {
   id?: string;
   index: string;
   title: string;
-  count?: string;
+  count?: string | number;
   tone?: Surface;
+  surface?: Surface;
+  lead?: string;
   className?: string;
 }
 
@@ -16,10 +18,16 @@ export function ChapterHeader({
   index,
   title,
   count,
-  tone = "dark",
+  tone,
+  surface = "dark",
+  lead,
   className = "",
 }: ChapterHeaderProps) {
-  const isDark = tone === "dark";
+  const effectiveTone = tone ?? surface;
+  const isDark = effectiveTone === "dark";
+
+  const displayCount =
+    typeof count === "number" ? String(count).padStart(2, "0") : count;
 
   return (
     <div className={`w-full mb-12 lg:mb-16 ${className}`}>
@@ -32,15 +40,15 @@ export function ChapterHeader({
           {index}
         </span>
         <div className="flex-1">
-          <RevealLine tone={tone} />
+          <RevealLine tone={effectiveTone} />
         </div>
-        {count ? (
+        {displayCount ? (
           <span
             className={`font-mono text-xs uppercase tracking-wider shrink-0 ${
               isDark ? "text-white/40" : "text-neutral-950/40"
             }`}
           >
-            {count}
+            {displayCount}
           </span>
         ) : null}
       </div>
@@ -54,6 +62,17 @@ export function ChapterHeader({
       >
         <RevealTitleLine>{title}</RevealTitleLine>
       </h2>
+
+      {lead ? (
+        <p
+          className={`mt-4 leading-[1.6] max-w-[58ch] ${
+            isDark ? "text-white/70" : "text-neutral-950/70"
+          }`}
+          style={{ fontSize: "clamp(1.125rem, 1.6vw, 1.5rem)" }}
+        >
+          {lead}
+        </p>
+      ) : null}
     </div>
   );
 }

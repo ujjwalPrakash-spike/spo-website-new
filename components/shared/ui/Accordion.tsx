@@ -7,8 +7,10 @@ import { TOKENS } from "@/lib/tokens";
 
 export interface AccordionItem {
   id: string;
-  title: string;
-  content: React.ReactNode;
+  title?: string;
+  question?: string;
+  content?: React.ReactNode;
+  answer?: React.ReactNode;
 }
 
 interface AccordionProps {
@@ -16,6 +18,8 @@ interface AccordionProps {
   defaultOpenId?: string;
   activeOpenId?: string;
   onToggle?: (id: string) => void;
+  tone?: "dark" | "light";
+  allowMultiple?: boolean;
   className?: string;
 }
 
@@ -24,6 +28,7 @@ export function Accordion({
   defaultOpenId,
   activeOpenId,
   onToggle,
+  tone = "light",
   className = "",
 }: AccordionProps) {
   const [prevDefaultOpenId, setPrevDefaultOpenId] = useState<string | undefined>(defaultOpenId);
@@ -32,7 +37,6 @@ export function Accordion({
   );
   const shouldReduceMotion = useReducedMotion();
 
-  // Adjust state during render if defaultOpenId prop changed
   if (defaultOpenId !== prevDefaultOpenId) {
     setPrevDefaultOpenId(defaultOpenId);
     setInternalOpenId(defaultOpenId ?? (items[0]?.id || ""));
@@ -63,10 +67,21 @@ export function Accordion({
     }
   };
 
+  const isDark = tone === "dark";
+
   return (
-    <div className={`w-full divide-y divide-neutral-950/10 border-y border-neutral-950/10 ${className}`}>
+    <div
+      className={`w-full divide-y ${
+        isDark
+          ? "divide-white/10 border-y border-white/10"
+          : "divide-neutral-950/10 border-y border-neutral-950/10"
+      } ${className}`}
+    >
       {items.map((item, idx) => {
         const isOpen = currentOpenId === item.id;
+        const itemTitle = item.title ?? item.question ?? "";
+        const itemContent = item.content ?? item.answer ?? null;
+
         return (
           <div key={item.id} className="w-full">
             <h3>
@@ -77,15 +92,29 @@ export function Accordion({
                 aria-controls={`acc-panel-${item.id}`}
                 onClick={() => handleToggle(item.id)}
                 onKeyDown={(e) => handleKeyDown(e, idx)}
-                className="w-full py-6 sm:py-7 flex items-center justify-between gap-6 text-left group focus-visible:outline-2 focus-visible:outline-neutral-950 focus-visible:outline-offset-4 rounded cursor-pointer"
+                className={`w-full py-6 sm:py-7 flex items-center justify-between gap-6 text-left group focus-visible:outline-2 focus-visible:outline-offset-4 rounded cursor-pointer ${
+                  isDark
+                    ? "focus-visible:outline-[#93c5fd]"
+                    : "focus-visible:outline-neutral-950"
+                }`}
               >
                 <span
-                  className="font-sans font-medium tracking-[-0.02em] text-neutral-950 group-hover:text-neutral-950/80 transition-colors"
+                  className={`font-sans font-medium tracking-[-0.02em] transition-colors ${
+                    isDark
+                      ? "text-white group-hover:text-white/80"
+                      : "text-neutral-950 group-hover:text-neutral-950/80"
+                  }`}
                   style={{ fontSize: "clamp(1.25rem, 2vw, 1.75rem)" }}
                 >
-                  {item.title}
+                  {itemTitle}
                 </span>
-                <div className="h-8 w-8 rounded-full border border-neutral-950/15 flex items-center justify-center text-neutral-950/70 group-hover:text-neutral-950 group-hover:border-neutral-950/40 transition-colors shrink-0">
+                <div
+                  className={`h-8 w-8 rounded-full border flex items-center justify-center transition-colors shrink-0 ${
+                    isDark
+                      ? "border-white/15 text-white/70 group-hover:text-white group-hover:border-white/40"
+                      : "border-neutral-950/15 text-neutral-950/70 group-hover:text-neutral-950 group-hover:border-neutral-950/40"
+                  }`}
+                >
                   {isOpen ? <IconMinus size={16} /> : <IconPlus size={16} />}
                 </div>
               </button>
@@ -103,8 +132,12 @@ export function Accordion({
                   transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.35, ease: TOKENS.ease }}
                   className="overflow-hidden"
                 >
-                  <div className="pb-8 pt-1 text-[17px] leading-[1.7] text-neutral-950/75 max-w-[62ch]">
-                    {item.content}
+                  <div
+                    className={`pb-8 pt-1 text-[17px] leading-[1.7] max-w-[62ch] ${
+                      isDark ? "text-white/75" : "text-neutral-950/75"
+                    }`}
+                  >
+                    {itemContent}
                   </div>
                 </motion.div>
               ) : null}

@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { Navbar } from "@/components/features/navigation/Navbar";
 import { IconArrowLeft } from "@tabler/icons-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { TOKENS } from "@/lib/tokens";
@@ -31,14 +32,20 @@ export function ArticleHero({
   return (
     <section
       aria-label="Article Header"
-      className="relative flex min-h-[56svh] flex-col justify-end bg-neutral-950 text-white overflow-hidden"
+      className="relative flex min-h-[56svh] flex-col justify-between bg-neutral-950 text-white overflow-hidden"
       style={{
-        paddingInline: TOKENS.paddingInline,
-        paddingTop: "calc(var(--nav-height, 64px) + 50px)",
-        paddingBottom: "clamp(40px, 6vh, 64px)",
+        paddingTop: "var(--nav-h)",
       }}
     >
-      <div className="mx-auto w-full max-w-[1440px]">
+      <Navbar tone="dark" variant="bar" />
+
+      {/* Intentional negative space */}
+      <div className="flex-1 min-h-[6vh] sm:min-h-[10vh]" aria-hidden="true" />
+
+      <div
+        className="mx-auto w-full max-w-[1440px] pb-10 sm:pb-14"
+        style={{ paddingInline: TOKENS.paddingInline }}
+      >
         {/* Back Link */}
         <Link
           href="/insights"

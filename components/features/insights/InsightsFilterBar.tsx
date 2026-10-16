@@ -34,11 +34,14 @@ export function InsightsFilterBar({
   ];
 
   return (
-    <div
-      className="sticky top-[64px] z-30 w-full border-b border-white/10 bg-neutral-950/85 backdrop-blur-md"
-      style={{ paddingInline: TOKENS.paddingInline }}
+    <aside
+      aria-label="Insights filters and search"
+      className="sticky top-[var(--nav-h)] z-40 w-full bg-neutral-950 border-b border-white/10"
     >
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col md:flex-row items-center justify-between gap-4 py-3.5">
+      <div
+        className="mx-auto flex w-full max-w-[1440px] flex-col md:flex-row items-center justify-between gap-4 py-3.5"
+        style={{ paddingInline: TOKENS.paddingInline }}
+      >
         {/* Search Input */}
         <div className="w-full md:w-80 lg:w-96">
           <SearchInput
@@ -69,6 +72,6 @@ export function InsightsFilterBar({
           </div>
         </div>
       </div>
-    </div>
+    </aside>
   );
 }

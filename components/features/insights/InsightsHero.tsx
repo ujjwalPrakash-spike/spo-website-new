@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Navbar } from "@/components/features/navigation/Navbar";
 import { motion, useReducedMotion } from "framer-motion";
 import { CountUp } from "@/components/shared/motion/CountUp";
 import { TOKENS } from "@/lib/tokens";
@@ -27,14 +28,20 @@ export function InsightsHero({
   return (
     <section
       aria-label="SPO Insights Introduction"
-      className="relative flex min-h-[70svh] flex-col justify-end bg-neutral-950 text-white overflow-hidden"
+      className="relative flex min-h-[70svh] flex-col justify-between bg-neutral-950 text-white overflow-hidden"
       style={{
-        paddingInline: TOKENS.paddingInline,
-        paddingTop: "calc(var(--nav-height, 64px) + 60px)",
-        paddingBottom: "clamp(48px, 8vh, 80px)",
+        paddingTop: "var(--nav-h)",
       }}
     >
-      <div className="mx-auto w-full max-w-[1440px]">
+      <Navbar tone="dark" variant="bar" />
+
+      {/* Intentional space above content */}
+      <div className="flex-1 min-h-[10vh] sm:min-h-[14vh]" aria-hidden="true" />
+
+      <div
+        className="mx-auto w-full max-w-[1440px] pb-12 sm:pb-16"
+        style={{ paddingInline: TOKENS.paddingInline }}
+      >
         {/* Eyebrow */}
         <p className="text-[13px] font-medium uppercase tracking-[0.12em] text-white/50 mb-6">
           Students&apos; Placement Office · Insights

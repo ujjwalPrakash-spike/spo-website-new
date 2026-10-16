@@ -358,15 +358,7 @@ export function InsightsDirectory({
                 className="w-full rounded-md border border-neutral-950/15 bg-white px-2.5 py-1.5 text-xs text-neutral-950 placeholder:text-neutral-950/40 focus:outline-neutral-950 mb-2"
               />
 
-              <div
-                className="max-h-[360px] overflow-y-auto space-y-0.5 pr-2"
-                style={{
-                  maskImage:
-                    "linear-gradient(to bottom, black 88%, transparent 100%)",
-                  WebkitMaskImage:
-                    "linear-gradient(to bottom, black 88%, transparent 100%)",
-                }}
-              >
+              <div className="max-h-[360px] overflow-y-auto space-y-0.5 pr-2 [scrollbar-width:thin] [scrollbar-color:rgba(0,0,0,0.25)_transparent]">
                 <button
                   type="button"
                   onClick={() => setSelectedCompany("all")}

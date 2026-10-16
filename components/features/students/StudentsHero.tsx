@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Navbar } from "@/components/features/navigation/Navbar";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowCircle } from "@/components/shared/ui/ArrowCircle";
 import { CountUp } from "@/components/shared/motion/CountUp";
@@ -76,11 +77,12 @@ export function StudentsHero({
   return (
     <section
       aria-label="For Students Introduction"
-      className="relative flex min-h-[85svh] flex-col justify-end bg-neutral-950 text-white overflow-hidden"
+      className="relative flex min-h-[85svh] flex-col justify-between bg-neutral-950 text-white overflow-hidden"
       style={{
-        paddingTop: "calc(var(--nav-height, 64px) + 60px)",
+        paddingTop: "var(--nav-h)",
       }}
     >
+      <Navbar tone="dark" variant="bar" />
       {/* Decorative Poster Frame in Cols 6-12 */}
       {HERO_CONFIG.posterUrl && (
         <div className="absolute right-0 top-1/4 w-full lg:w-7/12 pointer-events-none hidden md:block overflow-hidden rounded-2xl opacity-35 z-0 pr-8">

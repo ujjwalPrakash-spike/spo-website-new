@@ -1,6 +1,5 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Navbar } from "@/components/features/navigation/Navbar";
 import { INSIGHTS_DATA } from "@/lib/insights";
 import { countDistinct } from "@/lib/collections";
 import { InsightsPageClient } from "./InsightsPageClient";
@@ -24,7 +23,6 @@ export default function InsightsPage() {
 
   return (
     <div className="min-h-screen bg-neutral-950 text-white selection:bg-[#93c5fd]/30 selection:text-white">
-      <Navbar variant="bar" tone="dark" />
       <main id="main-content">
         <InsightsPageClient
           insights={INSIGHTS_DATA}

@@ -1,7 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Navbar } from "@/components/features/navigation/Navbar";
 import { INSIGHTS_DATA, ARTICLE_BODIES, Insight } from "@/lib/insights";
 import {
   ArticleHero,
@@ -93,7 +92,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <div className="min-h-screen bg-neutral-950 text-white selection:bg-[#93c5fd]/30 selection:text-white">
-      <Navbar variant="bar" tone="dark" />
       <main id="main-content">
         <ArticleHero
           title={article.title}

@@ -25,33 +25,36 @@ export function InsightRow({ insight, className = "" }: InsightRowProps) {
   const innerContent = (
     <div className="grid grid-cols-12 items-center gap-2 sm:gap-4 w-full">
       {/* Name: cols 1-4 */}
-      <div className="col-span-12 sm:col-span-4 transition-transform duration-200 group-hover:translate-x-2">
-        <span className="font-medium text-[16px] sm:text-[17px] text-neutral-950">
+      <div className="col-span-12 sm:col-span-4 transition-transform duration-200 group-hover:translate-x-2 min-w-0 pr-2">
+        <span className="font-medium text-[16px] sm:text-[17px] text-neutral-950 truncate block">
           {insight.name}
         </span>
       </div>
 
-      {/* Role: cols 5-8 */}
-      <div className="col-span-7 sm:col-span-4">
-        <span className="text-[14px] sm:text-[15px] text-neutral-950/65 line-clamp-1">
+      {/* Role: cols 5-7 */}
+      <div className="col-span-5 sm:col-span-3 min-w-0 pr-2">
+        <span className="text-[13px] sm:text-[14px] text-neutral-950/65 truncate block">
           {insight.role || (isArticle ? "Interview & Prep" : "—")}
         </span>
       </div>
 
-      {/* Company: cols 9-11 */}
-      <div className="col-span-3 sm:col-span-3">
-        <span className="font-medium text-[14px] sm:text-[15px] text-neutral-950 line-clamp-1">
+      {/* Company: cols 8-10 */}
+      <div className="col-span-5 sm:col-span-3 min-w-0 pr-2">
+        <span
+          className="font-medium text-[13px] sm:text-[14px] text-neutral-950 truncate block"
+          title={insight.company}
+        >
           {insight.company}
         </span>
       </div>
 
-      {/* Tag & Arrow: col 12 */}
-      <div className="col-span-2 sm:col-span-1 flex items-center justify-end gap-3">
-        <span className="hidden xl:inline-block font-mono text-[12px] text-neutral-950/45 tabular-nums uppercase">
+      {/* Tag & Arrow: cols 11-12 */}
+      <div className="col-span-2 sm:col-span-2 flex items-center justify-end gap-2.5 shrink-0">
+        <span className="hidden xl:inline-block font-mono text-[11px] text-neutral-950/45 tabular-nums uppercase shrink-0">
           {tag}
         </span>
         <ArrowCircle
-          size={36}
+          size={34}
           tone="light"
           direction={isArticle ? "right" : "up-right"}
           className="shrink-0 transition-colors duration-200 group-hover:bg-neutral-950 group-hover:text-white"

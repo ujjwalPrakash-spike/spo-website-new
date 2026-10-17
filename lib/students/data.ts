@@ -25,7 +25,7 @@ export interface StudentFaq {
 }
 
 export const STUDENT_HERO_DATA = {
-  eyebrow: "Students' Placement Office · Students",
+  eyebrow: "Students' Placement Office",
   titlePart1: "For",
   titlePart2: "students",
   lead: "A collection of resources for students at IIT Kanpur.",

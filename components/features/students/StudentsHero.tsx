@@ -182,11 +182,11 @@ export function StudentsHero({
         }}
       >
         {/* Top-left Eyebrow (at least 32px below the navbar) */}
-        <div>
+        <div className="shrink-0">
           <motion.p
             initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.35, ease: TOKENS.ease }}
+            transition={{ duration: 0.7, delay: 0.2, ease: TOKENS.ease }}
             className="text-[13px] font-medium uppercase tracking-[0.12em] text-white/60 select-none"
           >
             {STUDENT_HERO_DATA.eyebrow}
@@ -194,10 +194,10 @@ export function StudentsHero({
         </div>
 
         {/* Intentionally empty photo space in upper third */}
-        <div className="flex-1 min-h-[14vh] sm:min-h-[20vh]" aria-hidden="true" />
+        <div className="flex-1 min-h-[4vh] sm:min-h-[8vh]" aria-hidden="true" />
 
         {/* Focal Point: Two-line editorial title block in lower third */}
-        <div className="w-full my-auto pb-8 sm:pb-12">
+        <div className="w-full shrink-0 mb-6 sm:mb-8">
           {/* Line 1: "For" (left-aligned) */}
           <div className="overflow-hidden">
             <motion.div
@@ -214,7 +214,7 @@ export function StudentsHero({
                 style={{
                   fontSize: isMobile
                     ? "clamp(3.5rem, 18vw, 7rem)"
-                    : "clamp(4.5rem, 15vw, 16rem)",
+                    : "clamp(4.5rem, min(14.5vw, 22vh), 16rem)",
                   lineHeight: 0.85,
                 }}
               >
@@ -239,7 +239,7 @@ export function StudentsHero({
                 style={{
                   fontSize: isMobile
                     ? "clamp(3.5rem, 18vw, 7rem)"
-                    : "clamp(4.5rem, 15vw, 16rem)",
+                    : "clamp(4.5rem, min(14.5vw, 22vh), 16rem)",
                   lineHeight: 0.85,
                 }}
               >
@@ -252,14 +252,11 @@ export function StudentsHero({
         {/* Bottom Row: Lead sentence & Links (stays fixed relative to hero, fades on last 35%) */}
         <motion.div
           style={{ opacity: bottomOpacity }}
-          initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.45, ease: TOKENS.ease }}
-          className="w-full pb-8 md:pb-10"
+          className="w-full shrink-0 pb-6 sm:pb-8"
         >
           {/* Optional announcement notice if non-empty */}
           {STUDENT_HERO_DATA.notice ? (
-            <div className="mb-4 flex items-center gap-2 text-xs text-[#93c5fd]">
+            <div className="mb-3 flex items-center gap-2 text-xs text-[#93c5fd]">
               <span className="h-1.5 w-1.5 rounded-full bg-[#93c5fd] animate-pulse shrink-0" />
               <span>{STUDENT_HERO_DATA.notice}</span>
             </div>
@@ -267,15 +264,23 @@ export function StudentsHero({
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8">
             {/* Left: Lead sentence */}
-            <p
+            <motion.p
+              initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.35, ease: TOKENS.ease }}
               className="font-normal text-white/75 leading-[1.5] max-w-[36ch]"
               style={{ fontSize: "clamp(1.125rem, 1.6vw, 1.5rem)" }}
             >
               {STUDENT_HERO_DATA.lead}
-            </p>
+            </motion.p>
 
             {/* Right: Primary & Secondary Links */}
-            <div className="flex flex-wrap items-center gap-6 sm:gap-8 shrink-0">
+            <motion.div
+              initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.45, ease: TOKENS.ease }}
+              className="flex flex-wrap items-center gap-6 sm:gap-8 shrink-0"
+            >
               {/* Primary Link: SPO Insights */}
               <Link
                 href="/insights"
@@ -310,7 +315,7 @@ export function StudentsHero({
                   className="text-white/40 transition-transform duration-200 group-hover:translate-y-0.5 group-hover:text-white"
                 />
               </a>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>
@@ -319,7 +324,7 @@ export function StudentsHero({
       {topCompanies && topCompanies.length >= 4 && (
         <motion.div
           style={{ opacity: bottomOpacity }}
-          className="relative z-10 w-full"
+          className="relative z-10 w-full shrink-0"
         >
           <StudentsTicker companies={topCompanies} />
         </motion.div>

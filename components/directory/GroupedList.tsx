@@ -29,14 +29,22 @@ export function GroupedList<T>({
   const isDark = tone === "dark";
 
   return (
-    <div className="flex flex-col divide-y divide-neutral-950/10 dark:divide-white/10">
+    <div
+      className={`flex flex-col divide-y ${
+        isDark ? "divide-white/10" : "divide-neutral-950/10"
+      }`}
+    >
       {groups.map(({ group, items: groupItems }) => (
         <div
           key={group}
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 py-12 first:pt-0 last:pb-0"
         >
           <div className="lg:col-span-4 lg:sticky lg:top-[var(--header-stack-h)] self-start">
-            <h3 className="font-medium text-2xl tracking-tight text-neutral-950 dark:text-white">
+            <h3
+              className={`font-medium text-2xl tracking-tight ${
+                isDark ? "text-white" : "text-neutral-950"
+              }`}
+            >
               {group}
             </h3>
             <span

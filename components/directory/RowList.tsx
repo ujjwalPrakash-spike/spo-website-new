@@ -29,7 +29,13 @@ export function RowList<T>({ items, columns, tone = "dark" }: RowListProps<T>) {
   const isDark = tone === "dark";
 
   return (
-    <ul className="w-full divide-y divide-white/10 dark:divide-white/10 divide-neutral-950/10 border-t border-b border-white/10 dark:border-white/10 border-neutral-950/10">
+    <ul
+      className={`w-full divide-y ${
+        isDark
+          ? "divide-white/10 border-white/10"
+          : "divide-neutral-950/10 border-neutral-950/10"
+      } border-t border-b`}
+    >
       {items.map((item, idx) => (
         <li
           key={idx}
